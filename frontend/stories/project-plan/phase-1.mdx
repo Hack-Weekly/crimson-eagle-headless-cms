@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Project Plan/Phase 1" />
+
+# Phase 1: User Management
+
+<h2 className="sb-unstyled mt-4 mb-2 text-2xl text-zinc-500 uppercase">
+	Frontend:
+</h2>
+
+<h3 className="sb-unstyled text-xl text-zinc-400">1)</h3>
+
+-   Create project structure and set up Next.js development environment.
+-   Implement basic layout and navigation for the administrative interface using the "shadcn" component library.
+-   Create a placeholder login page with a form to sign in using username/email and password.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">2)</h3>
+
+-   Implement JWT token-based authentication on the backend.
+-   Connect the frontend login page to the backend API endpoint /auth/login to authenticate the user and retrieve the token.
+-   Store the token securely (e.g., in local storage) for subsequent API requests.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">3)</h3>
+
+-   Design and create the users list page in the admin dashboard.
+-   Fetch the list of users from the backend API endpoint /user using the stored token.
+-   Display the users in a data table with pagination, filtering by username, and sorting.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">4)</h3>
+
+-   Implement the functionality to select and delete multiple users.
+-   Add a delete button to the users list page, which triggers a confirmation prompt listing the selected users' IDs, usernames, and emails.
+-   Connect the delete button to the backend API endpoint /user/[id] to delete the selected users.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">5)</h3>
+
+-   Create the add/edit user page with a form for adding/editing user data.
+-   Implement form validation on the frontend for required fields and other relevant constraints.
+-   Connect the form submission to the backend API endpoint /user to add a new user or /user/[id] to update an existing user.
+
+<h2 className="sb-unstyled mt-4 mb-2 text-2xl text-zinc-500 uppercase">
+	Backend:
+</h2>
+
+<h3 className="sb-unstyled text-xl text-zinc-400">1)</h3>
+
+-   Set up the .NET Core development environment.
+-   Create the API endpoint /auth/login to authenticate the user and generate a JWT token upon successful login.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">2)</h3>
+
+-   Implement the API endpoint /user with the GET method to fetch a list of users (authorized only for logged-in users with appropriate permissions).
+
+<h3 className="sb-unstyled text-xl text-zinc-400">3)</h3>
+
+-   Implement the API endpoint /user with the POST method to add a new user (authorized only for logged-in users with appropriate permissions).
+-   Validate the request body data and return any validation errors if necessary.
+
+<h3 className="sb-unstyled text-xl text-zinc-400">4)</h3>
+
+-   Implement the API endpoint /user/[id] with the GET method to fetch a specific user's data by ID (authorized only for logged-in users with appropriate permissions).
+
+<h3 className="sb-unstyled text-xl text-zinc-400">5)</h3>
+
+-   Implement the API endpoint /user/[id] with the PUT method to update an existing user's data (authorized only for logged-in users with appropriate permissions).
+-   Validate the request body data and return any validation errors if necessary.
+
+<h2 className="sb-unstyled text-2xl text-zinc-500">Deployment:</h2>
+
+-   Deploy the frontend code to Vercel or a desired hosting environment.
+-   Deploy the backend code to Fly.io or a preferred hosting service.
+
+**End of Phase 1:**
+
+The user management functionality, including login, user list, add/edit user, and delete user, is implemented on both the frontend and backend.
+
+The frontend is deployed to Vercel, and the backend is deployed to Fly.io.
+
+MVP of the headless CMS with user management is ready for testing and further development.
+
+Note: During this timeframe, the frontend and backend developers will work in tandem, with the frontend using a dummy API placeholder until the backend API endpoints are finished.
