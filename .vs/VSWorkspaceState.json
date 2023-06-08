@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CMS.API"
   ],
+  "SelectedNode": "\\CMS.API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
