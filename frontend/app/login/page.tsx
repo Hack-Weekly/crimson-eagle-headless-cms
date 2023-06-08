@@ -1,3 +1,4 @@
+import Login from "@/components/Login/Login";
 import React from "react";
 
 type pageProps = {};
@@ -9,7 +10,9 @@ const page: React.FC<pageProps> = () => {
     flex items-center justify-center h-screen
     mx-auto w-full	max-w-2xl  
     "
-    ></div>
+    >
+      <Login />
+    </div>
   );
 };
 export default page;
