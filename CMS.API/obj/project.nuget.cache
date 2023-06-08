@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ceSKTY4XS9HSQ51P2F4QZddJzGbPhA9erPg/YN89GEBUDhkrkjFZMCqXEY43yotosnBfqx4DDfwNJGQ/SOFntw==",
+  "dgSpecHash": "COPNwT8NL82M/F1BqWv3ICuSiEWUndNKWbBCgWHq2RDw/uhS8te8ABm5vyLkxLzX9PwGbNhncWO5ccmJ7iVcpw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\candy\\source\\repos\\CE\\CMS.API\\CMS.API.csproj",
+  "projectFilePath": "C:\\Users\\candy\\source\\repos\\Hack-Weekly\\crimson-eagle-headless-cms\\CMS.API\\CMS.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\candy\\.nuget\\packages\\aspnetcore.healthchecks.sqlserver\\6.0.2\\aspnetcore.healthchecks.sqlserver.6.0.2.nupkg.sha512",
     "C:\\Users\\candy\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",

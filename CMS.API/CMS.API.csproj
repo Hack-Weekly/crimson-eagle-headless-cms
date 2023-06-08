@@ -104,14 +104,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="DataAccessLayer\Models\" />
-    <Folder Include="DataAccessLayer\Interfaces\" />
-    <Folder Include="DataAccessLayer\DTOs\" />
-    <Folder Include="DataAccessLayer\Pagination\" />
-    <Folder Include="DataAccessLayer\Services\" />
-    <Folder Include="DataAccessLayer\Repositories\" />
-    <Folder Include="Configurations\" />
+    <Folder Include="DataAccessLayer\Configurations\" />
     <Folder Include="Exceptions\" />
     <Folder Include="logs\" />
     <Folder Include="Middleware\" />

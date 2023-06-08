@@ -1,4 +1,11 @@
+using CMS.API.Configurations;
+using CMS.API.DataAccessLayer;
+using CMS.API.DataAccessLayer.Interfaces;
+using CMS.API.DataAccessLayer.Models;
+using CMS.API.DataAccessLayer.Repositories;
+using CMS.API.DataAccessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
@@ -78,6 +85,22 @@ builder.Host.UseSerilog((builderContext, loggerConfig) =>
  * 
  */
 
+/* Adds AutoMapper Config */
+builder.Services.AddAutoMapper(typeof(MapperConfig));
+
+/* Adds Identity Core */
+builder.Services.AddIdentityCore<APIUser>()
+    .AddRoles<IdentityRole>()
+    .AddTokenProvider<DataProtectorTokenProvider<APIUser>>("Crimson-Eagle")
+    .AddEntityFrameworkStores<CMSDbContext>()
+    .AddDefaultTokenProviders();
+
+/* Generic Interface and Repository */
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // uses these interfaces/classes
+
+/* IAuthManager */
+builder.Services.AddScoped<IAuthManager, AuthManager>();
+
 /* Authentication plus JWT Bearer */
 builder.Services.AddAuthentication(options =>
     {
@@ -152,7 +175,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
