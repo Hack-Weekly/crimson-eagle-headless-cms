@@ -185,3 +185,385 @@ ALTER TABLE [AspNetUsers] ADD CONSTRAINT [FK_AspNetUsers_CMSProjects_cmsProjectI
 2023-06-09 14:12:09.147 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20230609181201_implementedSeeding', N'7.0.5');
+2023-06-09 15:41:38.259 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:41:38.480 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:41:38.482 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:41:38.483 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:41:38.484 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:41:38.485 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:41:39.536 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:41:39.860 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 327.5372ms
+2023-06-09 15:41:39.937 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:41:39.937 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - -
+2023-06-09 15:41:39.959 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:41:39.961 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-06-09 15:41:39.969 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 31.3187ms
+2023-06-09 15:41:39.977 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - - - 0 144929 text/css 40.3131ms
+2023-06-09 15:41:40.020 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.7894ms
+2023-06-09 15:41:40.043 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 15:41:40.049 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 15:41:40.050 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 7.4536ms
+2023-06-09 15:41:40.121 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:41:40.249 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 128.5024ms
+2023-06-09 15:50:44.616 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:50:44.928 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:50:44.929 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:50:44.931 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:50:44.932 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:50:44.932 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:50:46.341 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:50:46.444 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:50:46.749 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:50:46.756 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 416.9967ms
+2023-06-09 15:50:47.084 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - -
+2023-06-09 15:50:47.124 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:50:47.179 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:50:47.210 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:50:47.260 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 135.6742ms
+2023-06-09 15:50:47.522 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 15:50:47.582 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-06-09 15:50:47.890 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:50:48.192 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 1012.7708ms
+2023-06-09 15:50:48.224 -04:00 [WRN] The response could not be cached for this request because the 'Content-Length' did not match the body length.
+2023-06-09 15:50:48.235 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 15:50:48.238 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - - - 0 144929 text/css 1153.8268ms
+2023-06-09 15:50:48.239 -04:00 [WRN] The response could not be cached for this request because the 'Content-Length' did not match the body length.
+2023-06-09 15:50:48.246 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 724.6666ms
+2023-06-09 15:50:48.351 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:50:48.352 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:50:48.637 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:50:48.638 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.5913ms
+2023-06-09 15:51:23.992 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register?api-version=1 application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 162
+2023-06-09 15:51:24.021 -04:00 [INF] The requested API version is ambiguous. Requested API Versions: ["1","1.0"]
+2023-06-09 15:51:24.026 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:51:24.124 -04:00 [INF] Executing endpoint 'Microsoft.AspNetCore.Http.Endpoint'
+2023-06-09 15:51:24.138 -04:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType0`1[[<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], Microsoft.AspNetCore.Mvc.Versioning, Version=5.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]], Microsoft.AspNetCore.Mvc.Versioning, Version=5.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2023-06-09 15:51:24.148 -04:00 [INF] Executed endpoint 'Microsoft.AspNetCore.Http.Endpoint'
+2023-06-09 15:51:24.150 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register?api-version=1 application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 162 - 400 - application/json;+charset=utf-8 158.4567ms
+2023-06-09 15:52:35.197 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:52:35.608 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:52:35.615 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:52:35.617 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:52:35.617 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:52:35.618 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:52:36.868 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:52:36.961 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:52:37.223 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:52:37.279 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - -
+2023-06-09 15:52:37.279 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:52:37.284 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:52:37.279 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:52:37.289 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 424.0405ms
+2023-06-09 15:52:37.295 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 15.0220ms
+2023-06-09 15:52:37.301 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-06-09 15:52:37.313 -04:00 [WRN] The response could not be cached for this request because the 'Content-Length' did not match the body length.
+2023-06-09 15:52:37.315 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/swagger-ui.css - - - 0 144929 text/css 35.4562ms
+2023-06-09 15:52:37.545 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 265.8074ms
+2023-06-09 15:52:37.556 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 15:52:37.560 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:52:37.571 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 15:52:37.574 -04:00 [WRN] The response could not be cached for this request because the 'Content-Length' did not match the body length.
+2023-06-09 15:52:37.575 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 19.5797ms
+2023-06-09 15:52:37.653 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:52:37.654 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:52:37.876 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:52:37.877 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 223.7254ms
+2023-06-09 15:53:28.444 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:53:28.767 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:53:28.776 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:53:28.778 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:53:28.778 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:53:28.779 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:53:29.913 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:53:30.006 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:53:30.229 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:53:30.242 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 330.3849ms
+2023-06-09 15:53:30.342 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:53:30.343 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:53:30.385 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 37.8859ms
+2023-06-09 15:53:30.477 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 133.7216ms
+2023-06-09 15:53:30.578 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:53:30.585 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:53:30.959 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:53:30.963 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 385.0603ms
+2023-06-09 15:53:38.056 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Account/user - -
+2023-06-09 15:53:38.087 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:53:38.249 -04:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2023-06-09 15:53:38.256 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-06-09 15:53:38.257 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:53:38.258 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/api/Account/user - - - 401 0 - 202.2514ms
+2023-06-09 15:53:51.097 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/login application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 51
+2023-06-09 15:53:51.104 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:53:51.111 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Login (CMS.API)'
+2023-06-09 15:53:51.178 -04:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserLoginDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 15:53:51.893 -04:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-06-09 15:53:51.906 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Login (CMS.API) in 723.15ms
+2023-06-09 15:53:51.908 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Login (CMS.API)'
+2023-06-09 15:53:51.911 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/login application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 51 - 400 - application/problem+json;+charset=utf-8 814.1265ms
+2023-06-09 15:54:04.399 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/login application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 53
+2023-06-09 15:54:04.401 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:54:04.403 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Login (CMS.API)'
+2023-06-09 15:54:04.405 -04:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Login(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserLoginDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 15:54:04.417 -04:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-06-09 15:54:04.419 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Login (CMS.API) in 13.1973ms
+2023-06-09 15:54:04.420 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Login (CMS.API)'
+2023-06-09 15:54:04.421 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/login application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 53 - 400 - application/problem+json;+charset=utf-8 22.2676ms
+2023-06-09 15:54:15.598 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 160
+2023-06-09 15:54:15.599 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:54:15.600 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:54:15.606 -04:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Register(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 15:54:15.626 -04:00 [INF] Failed Register Attempt for user@example.com
+2023-06-09 15:54:18.185 -04:00 [INF] Executed DbCommand (300ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 15:54:18.456 -04:00 [INF] Executed DbCommand (55ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256), @p19='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2023-06-09 15:54:18.524 -04:00 [INF] Executed DbCommand (38ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 15:54:18.539 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 15:54:18.893 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 3285.1368ms
+2023-06-09 15:54:18.896 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:54:18.993 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Role USER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at CMS.API.DataAccessLayer.Services.AuthManager.RegisterNewUser(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\DataAccessLayer\Services\AuthManager.cs:line 58
+   at CMS.API.Controllers.AccountController.Register(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Controllers\AccountController.cs:line 43
+   at lambda_method23(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_10>d.MoveNext() in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Program.cs:line 192
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-09 15:54:19.056 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 160 - 500 - text/plain;+charset=utf-8;+ver=1.0 3458.4821ms
+2023-06-09 15:56:41.461 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:56:42.014 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:56:42.027 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:56:42.039 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:56:42.040 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:56:42.041 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:56:42.923 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:56:43.008 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:56:43.268 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:56:43.278 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 356.2626ms
+2023-06-09 15:56:43.301 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:56:43.307 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:56:43.318 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 16.4469ms
+2023-06-09 15:56:43.407 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 100.2788ms
+2023-06-09 15:56:43.551 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:56:43.575 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:56:43.827 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:56:43.830 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 286.9830ms
+2023-06-09 15:56:58.795 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 161
+2023-06-09 15:56:58.819 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:56:58.913 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:56:58.950 -04:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Register(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 15:56:59.327 -04:00 [INF] Failed Register Attempt for user@example.com
+2023-06-09 15:57:01.095 -04:00 [INF] Executed DbCommand (93ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 15:57:01.208 -04:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2023-06-09 15:57:01.219 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 2263.0936ms
+2023-06-09 15:57:01.221 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:57:01.230 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 161 - 400 - application/json;+charset=utf-8;+ver=1.0 2435.5044ms
+2023-06-09 15:57:18.223 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 168
+2023-06-09 15:57:18.226 -04:00 [INF] CORS policy execution successful.
+2023-06-09 15:57:18.229 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:57:18.232 -04:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Register(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 15:57:18.238 -04:00 [INF] Failed Register Attempt for projectuser@homebrew.com
+2023-06-09 15:57:18.452 -04:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 15:57:18.608 -04:00 [INF] Executed DbCommand (33ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256), @p19='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2023-06-09 15:57:18.645 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 15:57:18.658 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 15:57:18.764 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 529.7737ms
+2023-06-09 15:57:18.768 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 15:57:18.881 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Role USER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at CMS.API.DataAccessLayer.Services.AuthManager.RegisterNewUser(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\DataAccessLayer\Services\AuthManager.cs:line 58
+   at CMS.API.Controllers.AccountController.Register(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Controllers\AccountController.cs:line 43
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_10>d.MoveNext() in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Program.cs:line 192
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-09 15:57:18.940 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 168 - 500 - text/plain;+charset=utf-8;+ver=1.0 716.5842ms
+2023-06-09 15:58:56.293 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 15:58:56.604 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 15:58:56.608 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 15:58:56.610 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 15:58:56.610 -04:00 [INF] Hosting environment: Development
+2023-06-09 15:58:56.611 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 15:58:57.440 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 15:58:57.512 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:58:57.833 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:58:57.841 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 403.4401ms
+2023-06-09 15:58:57.882 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 15:58:57.882 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 15:58:57.902 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 19.8941ms
+2023-06-09 15:58:57.953 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.1208ms
+2023-06-09 15:58:58.103 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 15:58:58.107 -04:00 [INF] No cached response available for this request.
+2023-06-09 15:58:58.541 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 15:58:58.542 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 439.5653ms
+2023-06-09 16:00:52.120 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 170
+2023-06-09 16:00:52.277 -04:00 [INF] CORS policy execution successful.
+2023-06-09 16:00:52.375 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 16:00:52.413 -04:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Register(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 16:00:52.747 -04:00 [INF] Failed Register Attempt for apiprojectuser@example.com
+2023-06-09 16:00:54.367 -04:00 [INF] Executed DbCommand (160ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 16:00:54.621 -04:00 [INF] Executed DbCommand (36ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256), @p19='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2023-06-09 16:00:54.648 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 16:00:54.658 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 16:00:54.803 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 2383.4046ms
+2023-06-09 16:00:54.805 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 16:00:54.893 -04:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Role PROJECTOWNER does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRoleAsync(TUser user, String role)
+   at CMS.API.DataAccessLayer.Services.AuthManager.RegisterNewUser(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\DataAccessLayer\Services\AuthManager.cs:line 58
+   at CMS.API.Controllers.AccountController.Register(APIUserDTO DTO) in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Controllers\AccountController.cs:line 43
+   at lambda_method6(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Program.<>c.<<<Main>$>b__0_10>d.MoveNext() in C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API\Program.cs:line 192
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-06-09 16:00:54.964 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 170 - 500 - text/plain;+charset=utf-8;+ver=1.0 2844.3438ms
+2023-06-09 16:01:54.726 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 16:01:55.038 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 16:01:55.043 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 16:01:55.053 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 16:01:55.054 -04:00 [INF] Hosting environment: Development
+2023-06-09 16:01:55.055 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 16:01:56.029 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 16:01:56.093 -04:00 [INF] No cached response available for this request.
+2023-06-09 16:01:56.301 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 16:01:56.310 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 282.5105ms
+2023-06-09 16:01:56.380 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 16:01:56.380 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 16:01:56.398 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 17.9452ms
+2023-06-09 16:01:56.431 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 51.4118ms
+2023-06-09 16:01:56.527 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 16:01:56.529 -04:00 [INF] No cached response available for this request.
+2023-06-09 16:01:56.740 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 16:01:56.740 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 213.1344ms
+2023-06-09 16:02:24.213 -04:00 [INF] Request starting HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 177
+2023-06-09 16:02:24.256 -04:00 [INF] CORS policy execution successful.
+2023-06-09 16:02:24.371 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 16:02:24.396 -04:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Register(CMS.API.DataAccessLayer.DTOs.APIUser.APIUserDTO) on controller CMS.API.Controllers.AccountController (CMS.API).
+2023-06-09 16:02:24.726 -04:00 [INF] Failed Register Attempt for okayihopethisworksnow@example.com
+2023-06-09 16:02:26.574 -04:00 [INF] Executed DbCommand (60ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 16:02:26.794 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Boolean), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256), @p19='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2023-06-09 16:02:26.822 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 16:02:26.876 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2023-06-09 16:02:26.887 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2023-06-09 16:02:26.903 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FName], [a].[IsProjectOwner], [a].[LName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[OrganizationName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[cmsProjectId]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2023-06-09 16:02:27.059 -04:00 [INF] Executed DbCommand (103ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p21='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p22='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTimeOffset), @p11='?' (Size = 256), @p12='?' (Size = 256), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (Size = 256), @p20='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [FName] = @p6, [IsProjectOwner] = @p7, [LName] = @p8, [LockoutEnabled] = @p9, [LockoutEnd] = @p10, [NormalizedEmail] = @p11, [NormalizedUserName] = @p12, [OrganizationName] = @p13, [PasswordHash] = @p14, [PhoneNumber] = @p15, [PhoneNumberConfirmed] = @p16, [SecurityStamp] = @p17, [TwoFactorEnabled] = @p18, [UserName] = @p19, [cmsProjectId] = @p20
+OUTPUT 1
+WHERE [Id] = @p21 AND [ConcurrencyStamp] = @p22;
+2023-06-09 16:02:27.081 -04:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2023-06-09 16:02:27.088 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 2686.6306ms
+2023-06-09 16:02:27.089 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
+2023-06-09 16:02:27.102 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 177 - 200 0 - 2889.3641ms
