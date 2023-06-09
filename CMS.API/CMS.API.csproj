@@ -104,7 +104,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccessLayer\Configurations\" />
     <Folder Include="Exceptions\" />
     <Folder Include="logs\" />
     <Folder Include="Middleware\" />

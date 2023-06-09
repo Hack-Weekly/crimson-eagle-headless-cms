@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/frontend/app/file
+/.vs/crimson-eagle-headless-cms/FileContentIndex
+/.vs/crimson-eagle-headless-cms/v17
+/.vs
