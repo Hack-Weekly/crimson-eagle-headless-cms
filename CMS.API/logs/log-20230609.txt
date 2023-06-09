@@ -1,0 +1,187 @@
+2023-06-09 11:50:21.046 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 11:50:21.368 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 11:50:21.426 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 11:50:21.429 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 11:50:21.430 -04:00 [INF] Hosting environment: Development
+2023-06-09 11:50:21.431 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 11:50:23.569 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 11:50:24.323 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 758.5269ms
+2023-06-09 11:50:24.382 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 11:50:24.383 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 11:50:24.407 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 24.5833ms
+2023-06-09 11:50:24.523 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 140.9975ms
+2023-06-09 11:50:24.539 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 11:50:24.566 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 11:50:24.567 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 28.4431ms
+2023-06-09 11:50:24.622 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 11:50:24.798 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 176.3078ms
+2023-06-09 11:53:44.488 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Account/user - -
+2023-06-09 11:53:45.179 -04:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2023-06-09 11:53:45.185 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-06-09 11:53:45.186 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/api/Account/user - - - 401 0 - 697.9969ms
+2023-06-09 11:54:03.158 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Account/user - -
+2023-06-09 11:54:03.172 -04:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2023-06-09 11:54:03.175 -04:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-06-09 11:54:03.180 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/api/Account/user - - - 401 0 - 21.7612ms
+2023-06-09 13:53:08.844 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 13:53:09.193 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 13:53:09.195 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 13:53:09.205 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 13:53:09.206 -04:00 [INF] Hosting environment: Development
+2023-06-09 13:53:09.206 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 14:00:19.473 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 14:00:19.749 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 14:00:19.750 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 14:00:19.752 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 14:00:19.753 -04:00 [INF] Hosting environment: Development
+2023-06-09 14:00:19.755 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 14:00:21.633 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger - -
+2023-06-09 14:00:21.665 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 14:00:21.769 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger - - - 0 - - 136.5495ms
+2023-06-09 14:00:22.111 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 445.9346ms
+2023-06-09 14:00:22.200 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 14:00:22.204 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 14:00:22.475 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 274.9974ms
+2023-06-09 14:00:22.573 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 369.4392ms
+2023-06-09 14:00:22.587 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 14:00:22.610 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 14:00:22.611 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 34.4450ms
+2023-06-09 14:00:22.713 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 14:00:23.051 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 338.2604ms
+2023-06-09 14:02:43.701 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-09 14:02:43.748 -04:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-09 14:02:43.750 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-09 14:02:43.752 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-09 14:02:43.810 -04:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-09 14:02:43.821 -04:00 [INF] Applying migration '20230609180142_createdSeeder'.
+2023-06-09 14:02:44.365 -04:00 [INF] Executed DbCommand (477ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[AspNetUsers].[CompanyName]', N'OrganizationName', N'COLUMN';
+2023-06-09 14:02:44.405 -04:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [IsProjectOwner] bit NOT NULL DEFAULT CAST(0 AS bit);
+2023-06-09 14:02:44.407 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [cmsProjectId] int NOT NULL DEFAULT 0;
+2023-06-09 14:02:44.421 -04:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CMSProjects] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [ProjectOwnerId] int NOT NULL,
+    [LastUpdated] datetime2 NOT NULL,
+    [IsActive] bit NOT NULL,
+    CONSTRAINT [PK_CMSProjects] PRIMARY KEY ([Id])
+);
+2023-06-09 14:02:44.463 -04:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'45ece81e-70eb-49ca-ad21-fdaf8d01658f', NULL, N'ProjectEditor', N'PROJEDITOR'),
+(N'54758424-e4f0-4aee-a725-41368768b176', NULL, N'ProjectOwner', N'PROJOWNER'),
+(N'7cb61aae-e0e9-40e9-9c15-de4e2324319c', NULL, N'ProjectUser', N'PROJUSER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-06-09 14:02:44.496 -04:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (N'24d3dea9-ff6c-4b4a-af8f-46a2f23c9321', 0, N'27319c72-f2d3-40c8-b103-dd3fa6ff7283', N'ProjectEditor@example.com', CAST(0 AS bit), N'ProjectEditor', CAST(0 AS bit), N'Example One', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'fc53d4fa-f2fb-4a9b-9e03-0cc78b2bb8d0', CAST(0 AS bit), NULL, 0),
+(N'f5adb2c7-a1f5-4c89-bfa8-f97900515576', 0, N'dafbbc30-0e84-4863-8714-64fe09f9a478', N'ProjectUser2@example.com', CAST(0 AS bit), N'ProjectUser', CAST(0 AS bit), N'Example Two', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'f17ac7d4-d2d9-4347-8d65-676a61f51fcf', CAST(0 AS bit), NULL, 0);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-06-09 14:02:44.520 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsActive', N'LastUpdated', N'Name', N'ProjectOwnerId') AND [object_id] = OBJECT_ID(N'[CMSProjects]'))
+    SET IDENTITY_INSERT [CMSProjects] ON;
+INSERT INTO [CMSProjects] ([Id], [IsActive], [LastUpdated], [Name], [ProjectOwnerId])
+VALUES (1, CAST(1 AS bit), '0001-01-01T00:00:00.0000000', N'PROJOWNER', 1),
+(2, CAST(1 AS bit), '0001-01-01T00:00:00.0000000', N'PROJOWNER', 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsActive', N'LastUpdated', N'Name', N'ProjectOwnerId') AND [object_id] = OBJECT_ID(N'[CMSProjects]'))
+    SET IDENTITY_INSERT [CMSProjects] OFF;
+2023-06-09 14:02:44.563 -04:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (N'5523ca33-1997-4aaf-a052-3a6e8cda9f7f', 0, N'ac4c282a-e376-4e85-aa68-e9fb2c8d819f', N'ProjectOwner1@example.com', CAST(0 AS bit), N'ProjectOwner', CAST(1 AS bit), N'Example One', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'15f37a10-2159-4f10-9a06-556057e3a350', CAST(0 AS bit), NULL, 1),
+(N'e1a98763-622f-45bb-a654-d209d10d73cf', 0, N'e656bd76-fb21-44b2-a0fb-ed1d16da8ced', N'ProjectOwner2@example.com', CAST(0 AS bit), N'ProjectOwner', CAST(1 AS bit), N'Example Two', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'9954d1c1-053c-4e80-bae3-b369cefadf71', CAST(0 AS bit), NULL, 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-06-09 14:02:44.596 -04:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUsers_cmsProjectId] ON [AspNetUsers] ([cmsProjectId]);
+2023-06-09 14:02:44.629 -04:00 [ERR] Failed executing DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD CONSTRAINT [FK_AspNetUsers_CMSProjects_cmsProjectId] FOREIGN KEY ([cmsProjectId]) REFERENCES [CMSProjects] ([Id]) ON DELETE CASCADE;
+2023-06-09 14:03:27.566 -04:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-09 14:03:27.615 -04:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-09 14:03:27.636 -04:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-09 14:12:08.539 -04:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-09 14:12:08.587 -04:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-09 14:12:08.589 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-06-09 14:12:08.590 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-06-09 14:12:08.603 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-06-09 14:12:08.614 -04:00 [INF] Applying migration '20230609181201_implementedSeeding'.
+2023-06-09 14:12:08.987 -04:00 [INF] Executed DbCommand (309ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[AspNetUsers].[CompanyName]', N'OrganizationName', N'COLUMN';
+2023-06-09 14:12:08.996 -04:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [IsProjectOwner] bit NOT NULL DEFAULT CAST(0 AS bit);
+2023-06-09 14:12:08.999 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [cmsProjectId] int NULL;
+2023-06-09 14:12:09.004 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CMSProjects] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [ProjectOwnerId] int NOT NULL,
+    [LastUpdated] datetime2 NOT NULL,
+    [IsActive] bit NOT NULL,
+    CONSTRAINT [PK_CMSProjects] PRIMARY KEY ([Id])
+);
+2023-06-09 14:12:09.031 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'147edc61-d8d6-435e-9c8d-86e5dc4000db', NULL, N'ProjectUser', N'PROJUSER'),
+(N'3f5870d6-cc43-4c2b-9d37-2eccdbf3fe5c', NULL, N'ProjectEditor', N'PROJEDITOR'),
+(N'58214f4c-8191-48bd-870a-a1e82386511d', NULL, N'ProjectOwner', N'PROJOWNER');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
+    SET IDENTITY_INSERT [AspNetRoles] OFF;
+2023-06-09 14:12:09.057 -04:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [FName], [IsProjectOwner], [LName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [OrganizationName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName], [cmsProjectId])
+VALUES (N'0c248897-ee92-44c5-af6e-2bec2e3e8a81', 0, N'63896c21-3aed-4754-af0f-cf4f683c4762', N'ProjectEditor@example.com', CAST(0 AS bit), N'ProjectEditor', CAST(0 AS bit), N'Example One', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'b54c0a65-a406-4dc8-9ada-b1093554ffa3', CAST(0 AS bit), NULL, NULL),
+(N'8366a1e5-787c-43dc-947e-d424bf6edfc1', 0, N'3d71d8ce-3507-4955-8fb6-4ea14ed38bce', N'ProjectUser2@example.com', CAST(0 AS bit), N'ProjectUser', CAST(0 AS bit), N'Example Two', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'58826020-91d8-4fac-a582-741a08af56e3', CAST(0 AS bit), NULL, NULL),
+(N'84e2578e-95db-4f36-a714-4cbe4840bb64', 0, N'f8159244-5dce-401c-86ee-d64e5cd54214', N'ProjectOwner2@example.com', CAST(0 AS bit), N'ProjectOwner', CAST(1 AS bit), N'Example Two', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'e9e7f2a6-1ef4-445b-8a4a-f60faf467c4a', CAST(0 AS bit), NULL, NULL),
+(N'8ec31953-8a6f-47d5-8a7b-debc31b80e23', 0, N'0687bfec-5a40-436a-b4d4-fdd78f1f88a2', N'ProjectOwner1@example.com', CAST(0 AS bit), N'ProjectOwner', CAST(1 AS bit), N'Example One', CAST(0 AS bit), NULL, NULL, NULL, N'Example Organization', NULL, NULL, CAST(0 AS bit), N'e47b4a91-212c-499d-b313-c2ad9c3f4760', CAST(0 AS bit), NULL, NULL);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'AccessFailedCount', N'ConcurrencyStamp', N'Email', N'EmailConfirmed', N'FName', N'IsProjectOwner', N'LName', N'LockoutEnabled', N'LockoutEnd', N'NormalizedEmail', N'NormalizedUserName', N'OrganizationName', N'PasswordHash', N'PhoneNumber', N'PhoneNumberConfirmed', N'SecurityStamp', N'TwoFactorEnabled', N'UserName', N'cmsProjectId') AND [object_id] = OBJECT_ID(N'[AspNetUsers]'))
+    SET IDENTITY_INSERT [AspNetUsers] OFF;
+2023-06-09 14:12:09.128 -04:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsActive', N'LastUpdated', N'Name', N'ProjectOwnerId') AND [object_id] = OBJECT_ID(N'[CMSProjects]'))
+    SET IDENTITY_INSERT [CMSProjects] ON;
+INSERT INTO [CMSProjects] ([Id], [IsActive], [LastUpdated], [Name], [ProjectOwnerId])
+VALUES (1, CAST(1 AS bit), '2023-06-09T18:12:00.9628953Z', N'project 1 ', 1),
+(2, CAST(1 AS bit), '2023-06-09T18:12:00.9628959Z', N'project 2', 2);
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'IsActive', N'LastUpdated', N'Name', N'ProjectOwnerId') AND [object_id] = OBJECT_ID(N'[CMSProjects]'))
+    SET IDENTITY_INSERT [CMSProjects] OFF;
+2023-06-09 14:12:09.133 -04:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUsers_cmsProjectId] ON [AspNetUsers] ([cmsProjectId]);
+2023-06-09 14:12:09.145 -04:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD CONSTRAINT [FK_AspNetUsers_CMSProjects_cmsProjectId] FOREIGN KEY ([cmsProjectId]) REFERENCES [CMSProjects] ([Id]);
+2023-06-09 14:12:09.147 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230609181201_implementedSeeding', N'7.0.5');

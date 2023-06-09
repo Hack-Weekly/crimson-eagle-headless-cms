@@ -26,8 +26,8 @@ namespace CMS.API.DataAccessLayer.Services
             this._mapper = mapper;
             this._userManager = userManager;
             this._configuration = configuration;
-
         }
+
 
         public async Task<AuthResponseDTO> LoginUser(APIUserLoginDTO DTO)
         {
