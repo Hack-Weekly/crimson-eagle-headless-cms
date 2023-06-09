@@ -28,7 +28,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAccessLayer\Configurations\" />
     <Folder Include="Exceptions\" />
     <Folder Include="logs\" />
     <Folder Include="Middleware\" />
