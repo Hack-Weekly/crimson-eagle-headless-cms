@@ -567,3 +567,79 @@ WHERE [Id] = @p21 AND [ConcurrencyStamp] = @p22;
 2023-06-09 16:02:27.088 -04:00 [INF] Executed action CMS.API.Controllers.AccountController.Register (CMS.API) in 2686.6306ms
 2023-06-09 16:02:27.089 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.AccountController.Register (CMS.API)'
 2023-06-09 16:02:27.102 -04:00 [INF] Request finished HTTP/2 POST https://localhost:7186/api/Account/register application/json;odata.metadata=minimal;odata.streaming=true;+ver=1.0 177 - 200 0 - 2889.3641ms
+2023-06-09 18:23:18.860 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 18:23:19.219 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 18:23:19.221 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 18:23:19.223 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 18:23:19.224 -04:00 [INF] Hosting environment: Development
+2023-06-09 18:23:19.224 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 18:23:21.415 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 18:23:21.495 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:23:21.761 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:23:21.768 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 355.6805ms
+2023-06-09 18:23:21.834 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 18:23:21.842 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 18:23:21.875 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 41.1274ms
+2023-06-09 18:23:21.957 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 115.1428ms
+2023-06-09 18:23:21.962 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - -
+2023-06-09 18:23:21.965 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:23:21.982 -04:00 [INF] Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+2023-06-09 18:23:21.984 -04:00 [WRN] The response could not be cached for this request because the 'Content-Length' did not match the body length.
+2023-06-09 18:23:21.985 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/favicon-16x16.png - - - 0 665 image/png 23.5291ms
+2023-06-09 18:23:22.048 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 18:23:22.049 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:23:22.313 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:23:22.314 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 265.4187ms
+2023-06-09 18:23:52.184 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Dashboard - -
+2023-06-09 18:23:52.211 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:23:52.572 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.DashboardController.Get (CMS.API)'
+2023-06-09 18:23:52.597 -04:00 [INF] Route matched with {action = "Get", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Get() on controller CMS.API.Controllers.DashboardController (CMS.API).
+2023-06-09 18:26:27.230 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 18:26:27.573 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 18:26:27.574 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 18:26:27.575 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 18:26:27.576 -04:00 [INF] Hosting environment: Development
+2023-06-09 18:26:27.576 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 18:26:28.817 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 18:26:28.891 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:26:29.367 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 18:26:29.367 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 18:26:29.382 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:26:29.653 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 839.1135ms
+2023-06-09 18:26:29.653 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 286.2274ms
+2023-06-09 18:26:29.763 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 395.1203ms
+2023-06-09 18:26:30.250 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 18:26:30.335 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:26:30.696 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:26:30.697 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 447.7180ms
+2023-06-09 18:26:38.337 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Dashboard - -
+2023-06-09 18:26:38.369 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:26:38.495 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.DashboardController.Get (CMS.API)'
+2023-06-09 18:26:38.547 -04:00 [INF] Route matched with {action = "Get", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Get() on controller CMS.API.Controllers.DashboardController (CMS.API).
+2023-06-09 18:27:09.302 -04:00 [INF] User profile is available. Using 'C:\Users\candy\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-06-09 18:27:10.069 -04:00 [INF] Now listening on: https://localhost:7186
+2023-06-09 18:27:10.071 -04:00 [INF] Now listening on: http://localhost:5172
+2023-06-09 18:27:10.072 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-06-09 18:27:10.073 -04:00 [INF] Hosting environment: Development
+2023-06-09 18:27:10.074 -04:00 [INF] Content root path: C:\Users\candy\source\repos\Hack-Weekly\crimson-eagle-headless-cms\CMS.API
+2023-06-09 18:27:10.825 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/index.html - -
+2023-06-09 18:27:10.956 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:27:11.131 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:27:11.136 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/index.html - - - 200 - text/html;charset=utf-8 314.5135ms
+2023-06-09 18:27:11.175 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - -
+2023-06-09 18:27:11.177 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/_vs/browserLink - -
+2023-06-09 18:27:11.185 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_framework/aspnetcore-browser-refresh.js - - - 200 11984 application/javascript;+charset=utf-8 9.7203ms
+2023-06-09 18:27:11.242 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 64.7020ms
+2023-06-09 18:27:11.593 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - -
+2023-06-09 18:27:12.499 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:27:12.726 -04:00 [INF] The response could not be cached for this request.
+2023-06-09 18:27:12.732 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1138.7306ms
+2023-06-09 18:27:17.992 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7186/api/Dashboard - -
+2023-06-09 18:27:18.019 -04:00 [INF] No cached response available for this request.
+2023-06-09 18:27:18.064 -04:00 [INF] Executing endpoint 'CMS.API.Controllers.DashboardController.Get (CMS.API)'
+2023-06-09 18:27:18.093 -04:00 [INF] Route matched with {action = "Get", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] Get() on controller CMS.API.Controllers.DashboardController (CMS.API).
+2023-06-09 18:27:18.682 -04:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-06-09 18:27:18.690 -04:00 [INF] Executed action CMS.API.Controllers.DashboardController.Get (CMS.API) in 591.7821ms
+2023-06-09 18:27:18.693 -04:00 [INF] Executed endpoint 'CMS.API.Controllers.DashboardController.Get (CMS.API)'
+2023-06-09 18:27:18.694 -04:00 [INF] The response has been cached.
+2023-06-09 18:27:18.697 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7186/api/Dashboard - - - 200 - text/plain;+charset=utf-8;+ver=1.0 705.1203ms

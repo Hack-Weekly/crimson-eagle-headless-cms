@@ -4,6 +4,7 @@ using CMS.API.DataAccessLayer.Interfaces;
 using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Repositories;
 using CMS.API.DataAccessLayer.Services;
+using CMS.API.DataAccessLayer.Services.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
@@ -109,6 +110,11 @@ builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();
 
 /* IAuthManager */
 builder.Services.AddScoped<IAuthManager, AuthManager>();
+
+/* IMediaService */
+builder.Services.AddScoped<IMediaService, MediaService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
 
 /* Authentication plus JWT Bearer */
 builder.Services.AddAuthentication(options =>
