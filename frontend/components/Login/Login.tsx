@@ -1,56 +1,25 @@
-"use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import React from "react";
-import * as z from "zod";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
-
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-});
+import LoginForm from "./LoginForm";
 
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
-  const form = useForm();
-  const onSubmit = () => {};
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div
+      className="
+    flex gap-4 flex-col
+    w-full bg-white border-2 rounded-md px-10 py-12"
+    >
+      <h2 className="text-3xl">Log in</h2>
+      <LoginForm />
+      <div className="w-full flex align-middle justify-center ">
+        Create new account?{" "}
+        <Link href={"/signup"} className="text-slate-400 cursor-pointer">
+          Sign up
+        </Link>
+      </div>
+    </div>
   );
 };
 export default Login;
