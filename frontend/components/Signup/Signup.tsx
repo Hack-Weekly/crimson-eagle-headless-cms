@@ -16,7 +16,7 @@ w-full bg-white border-2 rounded-md px-10 py-12 drop-shadow-xl"
       <div className="w-full flex align-middle justify-center ">
         Already have an account?{" "}
         <Link href={"/login"} className="text-slate-400 cursor-pointer">
-          Sign up
+          Log in
         </Link>
       </div>
     </div>
