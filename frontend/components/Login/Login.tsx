@@ -9,7 +9,7 @@ const Login: React.FC<LoginProps> = () => {
     <div
       className="
     flex gap-4 flex-col
-    w-full bg-white border-2 rounded-md px-10 py-12"
+    w-full bg-white border-2 rounded-md px-10 py-12 drop-shadow-xl"
     >
       <h2 className="text-3xl">Log in</h2>
       <LoginForm />
