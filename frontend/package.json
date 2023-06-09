@@ -11,6 +11,8 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^3.1.0",
+		"@radix-ui/react-label": "^2.0.2",
 		"@radix-ui/react-slot": "^1.0.2",
 		"@types/node": "20.2.5",
 		"@types/react": "18.2.8",
@@ -25,6 +27,7 @@
 		"postcss": "8.4.24",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
+		"react-hook-form": "^7.44.3",
 		"tailwind-merge": "^1.13.0",
 		"tailwindcss": "3.3.2",
 		"tailwindcss-animate": "^1.0.5",
