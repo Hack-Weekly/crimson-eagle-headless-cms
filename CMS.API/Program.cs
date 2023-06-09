@@ -5,6 +5,7 @@ using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Repositories;
 using CMS.API.DataAccessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.OData;
@@ -14,17 +15,19 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Db Context
-var CONNECTION_STRING = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
+var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
 
 builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
     DbOptions.UseSqlServer(CONNECTION_STRING);
 });
 
+// add swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -98,6 +101,12 @@ builder.Services.AddIdentityCore<APIUser>()
 /* Generic Interface and Repository */
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // uses these interfaces/classes
 
+/* IAPIUserRepository */
+builder.Services.AddScoped<IAPIUserRepository, APIUserRepository>();
+
+/* IcmsProjectRepository */
+builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();
+
 /* IAuthManager */
 builder.Services.AddScoped<IAuthManager, AuthManager>();
 
@@ -148,7 +157,7 @@ builder.Services.AddResponseCaching(options =>
     options.UseCaseSensitivePaths = true;
 });
 
-
+// Add OData
 // Add services to the container.
 builder.Services.AddControllers()
     .AddOData(options =>
@@ -166,6 +175,80 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<CMSDbContext>(tags: new[] { "database" });
 
 var app = builder.Build();
+
+/* Set up caching */
+app.UseResponseCaching();
+
+
+app.Use(async (context, next) =>
+{
+    context.Response.GetTypedHeaders().CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue()
+    {
+        Public = true,
+        MaxAge = TimeSpan.FromSeconds(10) // refresh the cache every this many seconds
+    };
+
+    context.Response.Headers[Microsoft.Net.Http.Headers.HeaderNames.Vary] = new string[] { "Accept-Encoding" };
+
+    await next();
+});
+
+/* Health Checks */
+app.MapHealthChecks("/healthcheck");
+
+/* Health Check for DB */
+app.MapHealthChecks("/healthcheckdatabase", new HealthCheckOptions
+{
+    Predicate = HealthCheck => HealthCheck.Tags.Contains("database"),
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+        [HealthStatus.Degraded] = StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+    },
+    ResponseWriter = WriteResponse
+});
+
+/* Health Check Log */
+static Task WriteResponse(HttpContext context, HealthReport HR)
+{
+    context.Response.ContentType = "application/json; charset=utf-8";
+
+    var options = new JsonWriterOptions { Indented = true };
+
+    using var memoryStream = new MemoryStream();
+    using (var jsonWriter = new Utf8JsonWriter(memoryStream, options))
+    {
+        jsonWriter.WriteStartObject();
+        jsonWriter.WriteString("status", HR.Status.ToString());
+        jsonWriter.WriteStartObject("results");
+
+        foreach (var entry in HR.Entries)
+        {
+            jsonWriter.WriteStartObject(entry.Key);
+            jsonWriter.WriteString("status", entry.Value.Status.ToString());
+
+            if (entry.Value.Description != null) jsonWriter.WriteString("description", entry.Value.Description.ToString());
+
+            jsonWriter.WriteStartObject("data");
+
+            foreach (var item in entry.Value.Data)
+            {
+                jsonWriter.WritePropertyName(item.Key);
+                JsonSerializer.Serialize(jsonWriter, item.Value, item.Value?.GetType() ?? typeof(object));
+            }
+
+            jsonWriter.WriteEndObject();
+            jsonWriter.WriteEndObject();
+        }
+
+        jsonWriter.WriteEndObject();
+        jsonWriter.WriteEndObject();
+    }
+
+    return context.Response.WriteAsync(Encoding.UTF8.GetString(memoryStream.ToArray()));
+}
+// end health checks
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

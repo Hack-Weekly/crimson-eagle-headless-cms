@@ -26,8 +26,8 @@ namespace CMS.API.DataAccessLayer.Services
             this._mapper = mapper;
             this._userManager = userManager;
             this._configuration = configuration;
-
         }
+
 
         public async Task<AuthResponseDTO> LoginUser(APIUserLoginDTO DTO)
         {
@@ -55,7 +55,7 @@ namespace CMS.API.DataAccessLayer.Services
 
             var registerResult = await _userManager.CreateAsync(_user, DTO.Password);
 
-            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "User");
+            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "PROJOWNER");
 
             return registerResult.Errors;
         }
@@ -69,7 +69,7 @@ namespace CMS.API.DataAccessLayer.Services
 
             var registerResult = await _userManager.CreateAsync(_user, DTO.Password);
 
-            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "Administrator");
+            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "PROJEDITOR");
 
             return registerResult.Errors;
         }

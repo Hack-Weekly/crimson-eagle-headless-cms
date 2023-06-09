@@ -23,7 +23,7 @@ namespace CMS.API.Controllers
         // GET: api/<AccountController>/user
         [HttpGet]
         [Route("user")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
         public async Task<string> Get()
         {
             return "User Dashboard";
@@ -73,10 +73,10 @@ namespace CMS.API.Controllers
             return Ok(authenticatedUser);
         }
 
-        /* POST: api/Account/register */
+        /* POST: api/Account/registeradmin */
         [HttpPost]
         [Route("registerdmin")]
-        [Authorize(Roles = ("Administrator"))]
+        [Authorize(Roles = ("ProjectEditor, ProjectOwner"))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
