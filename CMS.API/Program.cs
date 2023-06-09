@@ -18,12 +18,16 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Db Context
-var CONNECTION_STRING = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
+/* var CONNECTION_STRING = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
 
 builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
     DbOptions.UseSqlServer(CONNECTION_STRING);
-});
+}); */
+
+var CONNECTION_STRING = "DataSource=server.db; Cache=Shared";
+builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+        DbOptions.UseSqlite(CONNECTION_STRING));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
