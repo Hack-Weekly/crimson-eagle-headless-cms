@@ -20,13 +20,14 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Db Context
-var CONNECTION_STRING = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
+var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
 
 builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
     DbOptions.UseSqlServer(CONNECTION_STRING);
 });
 
+// add swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -156,7 +157,7 @@ builder.Services.AddResponseCaching(options =>
     options.UseCaseSensitivePaths = true;
 });
 
-
+// Add OData
 // Add services to the container.
 builder.Services.AddControllers()
     .AddOData(options =>
@@ -192,7 +193,6 @@ app.Use(async (context, next) =>
     await next();
 });
 
-/* Health Checks */
 /* Health Checks */
 app.MapHealthChecks("/healthcheck");
 
@@ -259,11 +259,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
-
-
-
-
-
 app.UseAuthentication();
 app.UseAuthorization();
 
