@@ -30,9 +30,6 @@ namespace CMS.API.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -47,6 +44,9 @@ namespace CMS.API.Migrations
                     b.Property<string>("FName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsProjectOwner")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LName")
                         .IsRequired()
@@ -65,6 +65,9 @@ namespace CMS.API.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("OrganizationName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -85,6 +88,9 @@ namespace CMS.API.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int?>("cmsProjectId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -95,7 +101,119 @@ namespace CMS.API.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("cmsProjectId");
+
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "8ec31953-8a6f-47d5-8a7b-debc31b80e23",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0687bfec-5a40-436a-b4d4-fdd78f1f88a2",
+                            Email = "ProjectOwner1@example.com",
+                            EmailConfirmed = false,
+                            FName = "ProjectOwner",
+                            IsProjectOwner = true,
+                            LName = "Example One",
+                            LockoutEnabled = false,
+                            OrganizationName = "Example Organization",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e47b4a91-212c-499d-b313-c2ad9c3f4760",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "84e2578e-95db-4f36-a714-4cbe4840bb64",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f8159244-5dce-401c-86ee-d64e5cd54214",
+                            Email = "ProjectOwner2@example.com",
+                            EmailConfirmed = false,
+                            FName = "ProjectOwner",
+                            IsProjectOwner = true,
+                            LName = "Example Two",
+                            LockoutEnabled = false,
+                            OrganizationName = "Example Organization",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "e9e7f2a6-1ef4-445b-8a4a-f60faf467c4a",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "8366a1e5-787c-43dc-947e-d424bf6edfc1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3d71d8ce-3507-4955-8fb6-4ea14ed38bce",
+                            Email = "ProjectUser2@example.com",
+                            EmailConfirmed = false,
+                            FName = "ProjectUser",
+                            IsProjectOwner = false,
+                            LName = "Example Two",
+                            LockoutEnabled = false,
+                            OrganizationName = "Example Organization",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "58826020-91d8-4fac-a582-741a08af56e3",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "0c248897-ee92-44c5-af6e-2bec2e3e8a81",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "63896c21-3aed-4754-af0f-cf4f683c4762",
+                            Email = "ProjectEditor@example.com",
+                            EmailConfirmed = false,
+                            FName = "ProjectEditor",
+                            IsProjectOwner = false,
+                            LName = "Example One",
+                            LockoutEnabled = false,
+                            OrganizationName = "Example Organization",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b54c0a65-a406-4dc8-9ada-b1093554ffa3",
+                            TwoFactorEnabled = false
+                        });
+                });
+
+            modelBuilder.Entity("CMS.API.DataAccessLayer.Models.cmsProject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProjectOwnerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CMSProjects");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsActive = true,
+                            LastUpdated = new DateTime(2023, 6, 9, 18, 12, 0, 962, DateTimeKind.Utc).AddTicks(8953),
+                            Name = "project 1 ",
+                            ProjectOwnerId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsActive = true,
+                            LastUpdated = new DateTime(2023, 6, 9, 18, 12, 0, 962, DateTimeKind.Utc).AddTicks(8959),
+                            Name = "project 2",
+                            ProjectOwnerId = 2
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -123,6 +241,26 @@ namespace CMS.API.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "58214f4c-8191-48bd-870a-a1e82386511d",
+                            Name = "ProjectOwner",
+                            NormalizedName = "PROJOWNER"
+                        },
+                        new
+                        {
+                            Id = "3f5870d6-cc43-4c2b-9d37-2eccdbf3fe5c",
+                            Name = "ProjectEditor",
+                            NormalizedName = "PROJEDITOR"
+                        },
+                        new
+                        {
+                            Id = "147edc61-d8d6-435e-9c8d-86e5dc4000db",
+                            Name = "ProjectUser",
+                            NormalizedName = "PROJUSER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -231,6 +369,13 @@ namespace CMS.API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("CMS.API.DataAccessLayer.Models.APIUser", b =>
+                {
+                    b.HasOne("CMS.API.DataAccessLayer.Models.cmsProject", null)
+                        .WithMany("Users")
+                        .HasForeignKey("cmsProjectId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -280,6 +425,11 @@ namespace CMS.API.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CMS.API.DataAccessLayer.Models.cmsProject", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

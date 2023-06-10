@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="6.0.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.21.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
@@ -104,7 +105,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccessLayer\Configurations\" />
+    <Folder Include="DataAccessLayer\DTOs\UserFile\" />
     <Folder Include="Exceptions\" />
     <Folder Include="logs\" />
     <Folder Include="Middleware\" />
