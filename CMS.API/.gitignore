@@ -475,3 +475,15 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# JetBrains Rider
+.idea/
+.git/
+*.sln.iml
+bin
+obj
+packages
+.vs/
+
+bin/
+obj/
