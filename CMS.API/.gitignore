@@ -476,5 +476,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# Rider Specific
+# JetBrains Rider
 .idea/
+.git/
+*.sln.iml
+
+bin/
+obj/

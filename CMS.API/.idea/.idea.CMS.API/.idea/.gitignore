@@ -4,6 +4,13 @@
 # Rider ignored files
 /.idea.CMS.API.iml
 /.idea
+# JetBrains Rider
+.idea/
+.git/
+*.sln.iml
+
+bin/
+obj/
 /modules.xml
 /contentModel.xml
 /projectSettingsUpdater.xml
