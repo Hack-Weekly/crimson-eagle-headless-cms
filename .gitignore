@@ -6,3 +6,6 @@
 /.vs/crimson-eagle-headless-cms/FileContentIndex
 /.vs/crimson-eagle-headless-cms/v17
 /.vs
+./CMS.API/.idea
+./CMS.API/bin
+./CMS.API/obj
