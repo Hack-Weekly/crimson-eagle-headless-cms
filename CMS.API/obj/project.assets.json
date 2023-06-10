@@ -12452,32 +12452,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\candy\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\EJ\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\candy\\source\\repos\\Hack-Weekly\\crimson-eagle-headless-cms\\CMS.API\\CMS.API.csproj",
+      "projectUniqueName": "D:\\Users\\DELL\\main\\nukes\\crimson-eagle-headless-cms\\CMS.API\\CMS.API.csproj",
       "projectName": "CMS.API",
-      "projectPath": "C:\\Users\\candy\\source\\repos\\Hack-Weekly\\crimson-eagle-headless-cms\\CMS.API\\CMS.API.csproj",
-      "packagesPath": "C:\\Users\\candy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\candy\\source\\repos\\Hack-Weekly\\crimson-eagle-headless-cms\\CMS.API\\obj\\",
+      "projectPath": "D:\\Users\\DELL\\main\\nukes\\crimson-eagle-headless-cms\\CMS.API\\CMS.API.csproj",
+      "packagesPath": "C:\\Users\\EJ\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\DELL\\main\\nukes\\crimson-eagle-headless-cms\\CMS.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\candy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\EJ\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
