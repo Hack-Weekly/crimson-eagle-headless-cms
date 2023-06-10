@@ -480,6 +480,9 @@ $RECYCLE.BIN/
 .idea/
 .git/
 *.sln.iml
+bin
+obj
+packages
 
 bin/
 obj/
