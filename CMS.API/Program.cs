@@ -102,8 +102,6 @@ builder.Services.AddIdentityCore<APIUser>()
 /* Generic Interface and Repository */
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // uses these interfaces/classes
 
-/* IAPIUserRepository */
-builder.Services.AddScoped<IAPIUserRepository, APIUserRepository>();
 
 /* IcmsProjectRepository */
 builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();

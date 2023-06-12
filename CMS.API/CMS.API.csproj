@@ -105,10 +105,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccessLayer\DTOs\UserFile\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="logs\" />
-    <Folder Include="Middleware\" />
   </ItemGroup>
 
 </Project>

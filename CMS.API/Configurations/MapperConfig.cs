@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CMS.API.DataAccessLayer.DTOs.APIUser;
+using CMS.API.DataAccessLayer.DTOs.UserFile;
 using CMS.API.DataAccessLayer.Models;
 
 namespace CMS.API.Configurations
@@ -9,6 +10,7 @@ namespace CMS.API.Configurations
         public MapperConfig()
         {
             CreateMap<APIUser, APIUserDTO>().ReverseMap(); // Mapper will convert to and from DTO
+            CreateMap<ProjectFile, ProjectFileDTO>().ReverseMap(); // Mapper will convert to and from DTO
         }
     }
 }

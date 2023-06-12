@@ -14,6 +14,5 @@ namespace CMS.API.DataAccessLayer.Repositories
             this._context = context;
             this._mapper = mapper;
         }
-
     }
 }
