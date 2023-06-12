@@ -80,9 +80,9 @@ namespace CMS.API.Controllers
         public async Task<IActionResult> DeleteProjectFile(int id)
         {
 
-            var countrySearchedFor = await _IUF.GetAsync(id);
+            var projectFileSearchingFor = await _IUF.GetAsync(id);
 
-            if (countrySearchedFor == null) throw new NotFoundException(nameof(DeleteProjectFile), id);
+            if (projectFileSearchingFor == null) throw new NotFoundException(nameof(DeleteProjectFile), id);
 
             await _IUF.DeleteAsync(id);
 
