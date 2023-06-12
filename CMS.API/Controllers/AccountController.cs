@@ -38,8 +38,6 @@ namespace CMS.API.Controllers
 
         public async Task<ActionResult> Register([FromBody] APIUserDTO DTO)
         {
-            _logger.LogInformation($"Failed Register Attempt for {DTO.Email}");
-
             var errors = await _iAuthManager.RegisterNewUser(DTO);
 
             if (errors.Any())
@@ -48,6 +46,8 @@ namespace CMS.API.Controllers
                 {
                     ModelState.AddModelError(error.Code, error.Description);
                 }
+
+                _logger.LogInformation($"Failed Register Attempt for {DTO.Email}");
 
                 return BadRequest(ModelState);
             }
@@ -64,11 +64,15 @@ namespace CMS.API.Controllers
 
         public async Task<ActionResult> Login([FromBody] APIUserLoginDTO DTO)
         {
-            _logger.LogInformation($"Failed Login Attempt for {DTO.Email}");
+            
 
             var authenticatedUser = await _iAuthManager.LoginUser(DTO);
 
-            if (authenticatedUser == null) return Unauthorized();
+            if (authenticatedUser == null)
+            {
+                _logger.LogInformation($"Failed Login Attempt for {DTO.Email}");
+                return Unauthorized();
+            }
 
             return Ok(authenticatedUser);
         }
@@ -108,11 +112,13 @@ namespace CMS.API.Controllers
 
         public async Task<ActionResult> RefreshToken([FromBody] AuthResponseDTO DTO)
         {
-            _logger.LogInformation($"Failed Refresh Token Attempt for {DTO.UserId}");
-
             var authenticatedUser = await _iAuthManager.VerifyRefreshToken(DTO);
 
-            if (authenticatedUser == null) return Unauthorized();
+            if (authenticatedUser == null)
+            {
+                _logger.LogInformation($"Failed Refresh Token Attempt for {DTO.UserId}");
+                return Unauthorized();
+            }
 
             return Ok(authenticatedUser);
         }
