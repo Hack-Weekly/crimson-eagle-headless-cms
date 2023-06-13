@@ -6,13 +6,11 @@ namespace CMS.API.DataAccessLayer.Interfaces
 {
     public interface IAuthManager
     {
-        Task<IEnumerable<IdentityError>> RegisterNewUser(APIUserDTO DTO);
-        Task<IEnumerable<IdentityError>> RegisterNewAdmin(APIUserDTO DTO);
+        Task<IdentityResult> RegisterNewUser(APIUserRegisterDTO DTO);
 
-        Task<AuthResponseDTO> LoginUser(APIUserLoginDTO DTO);
+        Task<AuthResponseDTO?> LoginUser(APIUserLoginDTO DTO);
 
         Task<string> CreateRefreshToken();
-        Task<AuthResponseDTO> VerifyRefreshToken(AuthResponseDTO DTO);
-
+        Task<AuthResponseDTO?> VerifyRefreshToken(AuthResponseDTO DTO);
     }
 }

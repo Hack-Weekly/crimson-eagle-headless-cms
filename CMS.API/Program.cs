@@ -21,11 +21,18 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Db Context
-var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
+/* var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
 
 builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
     DbOptions.UseSqlServer(CONNECTION_STRING);
+}); */
+
+var CONNECTION_STRING = "DataSource=server.db; Cache=Shared";
+
+builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+{
+    DbOptions.UseSqlite(CONNECTION_STRING);
 });
 
 // add swagger
@@ -110,6 +117,9 @@ builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();
 
 /* IAuthManager */
 builder.Services.AddScoped<IAuthManager, AuthManager>();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUsersManager, UsersManager>();
 
 /* IMediaService */
 builder.Services.AddScoped<IMediaService, MediaService>();

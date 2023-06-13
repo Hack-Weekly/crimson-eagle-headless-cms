@@ -16,62 +16,66 @@ namespace CMS.API.DataAccessLayer.Services
         private IMapper _mapper;
         private UserManager<APIUser> _userManager;
         private readonly IConfiguration _configuration;
-        private APIUser _user;
+        private IcmsProjectRepository _csmProjectRepository;
+        private APIUser? _user;
 
-        private const string _loginProvider = "HotelListingAPI";
+        private const string _loginProvider = "Crimson-Eagle";
         private const string _refreshToken = "RefreshToken";
 
-        public AuthManager(IMapper mapper, UserManager<APIUser> userManager, IConfiguration configuration)
+        public AuthManager(
+            IMapper mapper,
+            UserManager<APIUser> userManager,
+            IConfiguration configuration,
+            IcmsProjectRepository cmsProjectRepository)
         {
             this._mapper = mapper;
             this._userManager = userManager;
             this._configuration = configuration;
+            this._csmProjectRepository = cmsProjectRepository;
         }
 
-
-        public async Task<AuthResponseDTO> LoginUser(APIUserLoginDTO DTO)
+        public async Task<AuthResponseDTO?> LoginUser(APIUserLoginDTO DTO)
         {
             _user = await _userManager.FindByEmailAsync(DTO.Email);
 
+            if (_user == null) return null;
+
             bool isValidPassword = await _userManager.CheckPasswordAsync(_user, DTO.Password);
 
-            if (_user == null || !isValidPassword) return default;
+            if (!isValidPassword) return default;
 
             var issueNewToken = await GenerateToken();
 
             return new AuthResponseDTO
             {
-                Token = issueNewToken,
                 UserId = _user.Id,
+                Token = issueNewToken,
                 RefreshToken = await CreateRefreshToken()
             };
         }
 
-        public async Task<IEnumerable<IdentityError>> RegisterNewUser(APIUserDTO DTO)
+        public async Task<IdentityResult> RegisterNewUser(APIUserRegisterDTO DTO)
         {
             _user = _mapper.Map<APIUser>(DTO);
 
             _user.UserName = DTO.Email;
 
-            var registerResult = await _userManager.CreateAsync(_user, DTO.Password);
+            var project = await _csmProjectRepository.AddAsync(new cmsProject
+            {
+                Name = DTO.ProjectName,
+                LastUpdated = DateTime.Now,
+            });
 
-            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "PROJOWNER");
-
-            return registerResult.Errors;
-        }
-
-        /* Create Admin Account */
-        public async Task<IEnumerable<IdentityError>> RegisterNewAdmin(APIUserDTO DTO)
-        {
-            _user = _mapper.Map<APIUser>(DTO);
-
-            _user.UserName = DTO.Email;
+            _user.Project = project;
 
             var registerResult = await _userManager.CreateAsync(_user, DTO.Password);
 
-            if (registerResult.Succeeded) await _userManager.AddToRoleAsync(_user, "PROJEDITOR");
+            if (!registerResult.Succeeded)
+            {
+                return registerResult;
+            }
 
-            return registerResult.Errors;
+            return await _userManager.AddToRoleAsync(_user, "PROJOWNER");
         }
 
         private async Task<string> GenerateToken()
@@ -84,18 +88,18 @@ namespace CMS.API.DataAccessLayer.Services
 
             var userCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var userRoles = await _userManager.GetRolesAsync(_user);
+            var userRoles = await _userManager.GetRolesAsync(_user!);
 
             var userRoleClaims = userRoles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
 
             /* Below is the method to retrieve claims that are stored in database */
-            var userClaims = await _userManager.GetClaimsAsync(_user);
+            var userClaims = await _userManager.GetClaimsAsync(_user!);
 
             var userClaimsList = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, _user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, _user!.Email!),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, _user.Email),
+                new Claim(JwtRegisteredClaimNames.Email, _user!.Email!),
                 new Claim("uid", _user.Id), // custom claim user id
             }
             .Union(userClaims)
@@ -122,21 +126,25 @@ namespace CMS.API.DataAccessLayer.Services
 
         public async Task<string> CreateRefreshToken()
         {
-            await _userManager.RemoveAuthenticationTokenAsync(_user, _loginProvider, _refreshToken); // removes current token from db
+            await _userManager.RemoveAuthenticationTokenAsync(_user!, _loginProvider, _refreshToken); // removes current token from db
 
-            var getNewRefreshToken = await _userManager.GenerateUserTokenAsync(_user, _loginProvider, _refreshToken); // adds new token to db
+            var getNewRefreshToken = await _userManager.GenerateUserTokenAsync(_user!, _loginProvider, _refreshToken); // adds new token to db
 
-            var giveNewRefreshToken = await _userManager.SetAuthenticationTokenAsync(_user, _loginProvider, _refreshToken, getNewRefreshToken);
+            var giveNewRefreshToken = await _userManager.SetAuthenticationTokenAsync(_user!, _loginProvider, _refreshToken, getNewRefreshToken);
 
             return getNewRefreshToken;
         }
 
-        public async Task<AuthResponseDTO> VerifyRefreshToken(AuthResponseDTO DTO)
+        public async Task<AuthResponseDTO?> VerifyRefreshToken(AuthResponseDTO DTO)
         {
+            if (DTO.RefreshToken == null) return null;
+
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var tokenContent = jwtSecurityTokenHandler.ReadJwtToken(DTO.Token);
 
             var username = tokenContent.Claims.ToList().FirstOrDefault(found => found.Type == JwtRegisteredClaimNames.Email)?.Value;
+
+            if (username == null) return null;
 
             _user = await _userManager.FindByNameAsync(username);
 

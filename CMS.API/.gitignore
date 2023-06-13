@@ -485,5 +485,7 @@ obj
 packages
 .vs/
 
-bin/
-obj/
+# sqlite
+server.db
+server.db-shm
+server.db-wal
