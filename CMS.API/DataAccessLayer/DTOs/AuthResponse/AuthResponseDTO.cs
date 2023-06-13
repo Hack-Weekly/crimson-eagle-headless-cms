@@ -2,9 +2,9 @@
 {
     public class AuthResponseDTO
     {
-        public string UserId { get; set; }
-        public string CompanyName { get; set; }
-        public string Token { get; set; }
+        public required string UserId { get; set; }
+        public string? CompanyName { get; set; }
+        public required string Token { get; set; }
         public string? RefreshToken { get; internal set; }
     }
 }

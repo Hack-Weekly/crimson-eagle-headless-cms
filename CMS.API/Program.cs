@@ -1,5 +1,6 @@
 using CMS.API.Configurations;
 using CMS.API.DataAccessLayer;
+using CMS.API.DataAccessLayer.Configurations;
 using CMS.API.DataAccessLayer.Interfaces;
 using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Repositories;
@@ -21,11 +22,18 @@ using System.Text.Json;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Db Context
-var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
+/* var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
 
 builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
     DbOptions.UseSqlServer(CONNECTION_STRING);
+}); */
+
+var CONNECTION_STRING = "DataSource=server.db; Cache=Shared";
+
+builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+{
+    DbOptions.UseSqlite(CONNECTION_STRING);
 });
 
 // add swagger
@@ -109,6 +117,9 @@ builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();
 /* IAuthManager */
 builder.Services.AddScoped<IAuthManager, AuthManager>();
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUsersManager, UsersManager>();
+
 /* IMediaService */
 builder.Services.AddScoped<IMediaService, MediaService>();
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
@@ -179,6 +190,13 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<CMSDbContext>(tags: new[] { "database" });
 
 var app = builder.Build();
+
+// seed users and roles
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<APIUser>>();
+    await UsersAndRolesSeeder.Seed(userManager);
+}
 
 /* Set up caching */
 app.UseResponseCaching();

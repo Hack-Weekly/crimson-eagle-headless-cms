@@ -4,11 +4,13 @@ namespace CMS.API.DataAccessLayer.DTOs.APIUser
 {
     public class APIUserLoginDTO
     {
-        [Required]
+        [Required(ErrorMessage = "Please provide your e-mail address.")]
         [EmailAddress]
-        public string Email { get; set; }
-        [Required]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Please provide a valid e-mail address.")]
+        public required string Email { get; set; }
+        [Required(ErrorMessage = "Please provide your password.")]
+        [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public required string Password { get; set; }
     }
 }
