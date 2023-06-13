@@ -2,7 +2,6 @@
 using CMS.API.DataAccessLayer.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
 namespace CMS.API.DataAccessLayer
 {
@@ -13,9 +12,9 @@ namespace CMS.API.DataAccessLayer
 
         }
 
-        public DbSet<APIUser> APIUsers { get; set; }
-        public DbSet<cmsProject> CMSProjects { get; set; }
-        public DbSet<ProjectFile> userFiles { get; set; }
+        public DbSet<APIUser>? APIUsers { get; set; }
+        public DbSet<cmsProject>? CMSProjects { get; set; }
+        public DbSet<ProjectFile>? userFiles { get; set; }
 
         /* Apply Seeders Here */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,9 +24,21 @@ namespace CMS.API.DataAccessLayer
             /* Role Seeder */
             modelBuilder.ApplyConfiguration(new RoleConfiguration()); // seeds the roles table
 
-            /* APIUser, cmsProject Seeder */
-            modelBuilder.ApplyConfiguration(new APIUserConfiguration()); // seeds the roles table
-            modelBuilder.ApplyConfiguration(new cmsProjectConfigurations()); // seeds the roles table
+            /* cmsProject Seeder */
+            modelBuilder.ApplyConfiguration(new cmsProjectConfigurations());
+
+            /* APIUser Seeder */
+            modelBuilder.ApplyConfiguration(new APIUserConfiguration());
+
+            // Add roles
+            modelBuilder.ApplyConfiguration(new APIUserRolesConfiguration());
+
+            // generate id string for cmsProject
+            modelBuilder.Entity<cmsProject>().Property(x => x.Id)
+                .ValueGeneratedOnAdd()
+                .HasValueGenerator<cmsProjectIdGenerator>();
+            modelBuilder.Entity<cmsProject>().HasIndex(x => x.Name).IsUnique();
+            modelBuilder.Entity<cmsProject>().Property(x => x.LastUpdated).HasDefaultValueSql("CURRENT_TIMESTAMP");
         }
 
     }

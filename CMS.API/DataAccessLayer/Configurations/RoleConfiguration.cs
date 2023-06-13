@@ -11,16 +11,19 @@ namespace CMS.API.DataAccessLayer.Configurations
             builder.HasData(
                     new IdentityRole
                     {
+                        Id = "ownerroleid",
                         Name = "ProjectOwner",
                         NormalizedName = "PROJOWNER"
                     },
                     new IdentityRole
                     {
+                        Id = "editorroleid",
                         Name = "ProjectEditor",
                         NormalizedName = "PROJEDITOR"
                     },
                     new IdentityRole
                     {
+                        Id = "userroleid",
                         Name = "ProjectUser",
                         NormalizedName = "PROJUSER"
                     }

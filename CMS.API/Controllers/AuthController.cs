@@ -1,48 +1,37 @@
 ﻿using CMS.API.DataAccessLayer.DTOs.APIUser;
 using CMS.API.DataAccessLayer.DTOs.AuthResponse;
 using CMS.API.DataAccessLayer.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CMS.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("auth")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private IAuthManager _iAuthManager;
-        private readonly ILogger<AccountController> _logger;
+        private readonly ILogger<AuthController> _logger;
 
-        public AccountController(IAuthManager iAuthManager, ILogger<AccountController> logger)
+        public AuthController(IAuthManager iAuthManager, ILogger<AuthController> logger)
         {
             this._iAuthManager = iAuthManager;
             this._logger = logger;
         }
-        // GET: api/<AccountController>/user
-        [HttpGet]
-        [Route("user")]
-        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
-        public async Task<string> Get()
-        {
-            return "User Dashboard";
-        }
 
-        /* POST: api/<AccountController>/register */
         [HttpPost]
         [Route("register")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
-        [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-
-        public async Task<ActionResult> Register([FromBody] APIUserDTO DTO)
+        [ProducesResponseType(StatusCodes.Status201Created)] // if okay
+        public async Task<ActionResult> Register([FromBody] APIUserRegisterDTO DTO)
         {
-            var errors = await _iAuthManager.RegisterNewUser(DTO);
+            var result = await _iAuthManager.RegisterNewUser(DTO);
 
-            if (errors.Any())
+            if (!result.Succeeded)
             {
-                foreach (var error in errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(error.Code, error.Description);
                 }
@@ -55,17 +44,13 @@ namespace CMS.API.Controllers
             return Ok();
         }
 
-        /* POST: api/Account/login */
         [HttpPost]
         [Route("login")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-
-        public async Task<ActionResult> Login([FromBody] APIUserLoginDTO DTO)
+        public async Task<ActionResult<AuthResponseDTO>> Login([FromBody] APIUserLoginDTO DTO)
         {
-            
-
             var authenticatedUser = await _iAuthManager.LoginUser(DTO);
 
             if (authenticatedUser == null)
@@ -77,40 +62,12 @@ namespace CMS.API.Controllers
             return Ok(authenticatedUser);
         }
 
-        /* POST: api/Account/registeradmin */
-        [HttpPost]
-        [Route("registerdmin")]
-        [Authorize(Roles = ("ProjectEditor, ProjectOwner"))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
-        [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-        public async Task<ActionResult> RegisterAdmin([FromBody] APIUserDTO DTO)
-        {
-            _logger.LogInformation($"Failed Register Admin Attempt for {DTO.Email}");
-
-            var errors = await _iAuthManager.RegisterNewAdmin(DTO);
-
-            if (errors.Any())
-            {
-                foreach (var error in errors)
-                {
-                    ModelState.AddModelError(error.Code, error.Description);
-                }
-
-                return BadRequest(ModelState);
-            }
-
-            return Ok();
-        }
-
-        /* POST: api/Account/refreshToken */
         [HttpPost]
         [Route("refreshToken")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-
-        public async Task<ActionResult> RefreshToken([FromBody] AuthResponseDTO DTO)
+        public async Task<ActionResult<AuthResponseDTO>> RefreshToken([FromBody] AuthResponseDTO DTO)
         {
             var authenticatedUser = await _iAuthManager.VerifyRefreshToken(DTO);
 
@@ -122,6 +79,9 @@ namespace CMS.API.Controllers
 
             return Ok(authenticatedUser);
         }
+
+        // TODO forgotten password routes
+        // needs e-mail service
 
     }
 }

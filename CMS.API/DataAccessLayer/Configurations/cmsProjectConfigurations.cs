@@ -12,17 +12,15 @@ namespace CMS.API.DataAccessLayer.Configurations
             builder.HasData(
                     new cmsProject
                     {
-                        Id = 1,
-                        Name = "project 1 ",
-                        ProjectOwnerId = 1,
+                        Id = "projectoneidstring",
+                        Name = "project 1",
                         LastUpdated = DateTime.UtcNow,
                         IsActive = true,
                     },
                     new cmsProject
                     {
-                        Id = 2,
+                        Id = "projecttwoidstring",
                         Name = "project 2",
-                        ProjectOwnerId = 2,
                         LastUpdated = DateTime.UtcNow,
                         IsActive = true,
                     }

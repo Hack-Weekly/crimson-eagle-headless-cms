@@ -9,3 +9,6 @@
 /CMS.API/.idea
 /CMS.API/bin
 /CMS.API/obj
+
+.vscode
+/CMS.API/Migrations/Sqlite

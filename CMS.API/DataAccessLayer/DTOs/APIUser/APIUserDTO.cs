@@ -1,15 +1,12 @@
-﻿using CMS.API.DataAccessLayer.Models;
-using Microsoft.Build.Evaluation;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace CMS.API.DataAccessLayer.DTOs.APIUser
+﻿namespace CMS.API.DataAccessLayer.DTOs.APIUser
 {
-    public class APIUserDTO : APIUserLoginDTO
+    public class APIUserDTO
     {
-        public string FName { get; set; }
-        public string LName { get; set; }
+        public required string Id { get; set; }
+        public required string FName { get; set; }
+        public required string LName { get; set; }
         public string? OrganizationName { get; set; }
-        public bool IsProjectOwner { get; set; }
+        public required string ProjectId { get; set; }
+        public required string Email { get; set; }
     }
 }
