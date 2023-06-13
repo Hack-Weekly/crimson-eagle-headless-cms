@@ -16,6 +16,6 @@ namespace CMS.API.DataAccessLayer.Models
         public bool IsActive { get; set; } = true;
         [ForeignKey("ProjectId")]
         public IList<APIUser>? Users { get; set; }
-        public IList<UserFile>? Files { get; set; }
+        public IList<ProjectFile>? Files { get; set; }
     }
 }
