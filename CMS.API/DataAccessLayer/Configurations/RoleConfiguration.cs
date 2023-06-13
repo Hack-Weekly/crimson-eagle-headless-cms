@@ -13,19 +13,19 @@ namespace CMS.API.DataAccessLayer.Configurations
                     {
                         Id = "ownerroleid",
                         Name = "ProjectOwner",
-                        NormalizedName = "PROJOWNER"
+                        NormalizedName = "PROJECTOWNER"
                     },
                     new IdentityRole
                     {
                         Id = "editorroleid",
                         Name = "ProjectEditor",
-                        NormalizedName = "PROJEDITOR"
+                        NormalizedName = "PROJECTEDITOR"
                     },
                     new IdentityRole
                     {
                         Id = "userroleid",
                         Name = "ProjectUser",
-                        NormalizedName = "PROJUSER"
+                        NormalizedName = "PROJECTUSER"
                     }
                 );
         }

@@ -1,5 +1,6 @@
 using CMS.API.Configurations;
 using CMS.API.DataAccessLayer;
+using CMS.API.DataAccessLayer.Configurations;
 using CMS.API.DataAccessLayer.Interfaces;
 using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Repositories;
@@ -189,6 +190,13 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<CMSDbContext>(tags: new[] { "database" });
 
 var app = builder.Build();
+
+// seed users and roles
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<APIUser>>();
+    await UsersAndRolesSeeder.Seed(userManager);
+}
 
 /* Set up caching */
 app.UseResponseCaching();

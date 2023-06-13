@@ -27,12 +27,6 @@ namespace CMS.API.DataAccessLayer
             /* cmsProject Seeder */
             modelBuilder.ApplyConfiguration(new cmsProjectConfigurations());
 
-            /* APIUser Seeder */
-            modelBuilder.ApplyConfiguration(new APIUserConfiguration());
-
-            // Add roles
-            modelBuilder.ApplyConfiguration(new APIUserRolesConfiguration());
-
             // generate id string for cmsProject
             modelBuilder.Entity<cmsProject>().Property(x => x.Id)
                 .ValueGeneratedOnAdd()
