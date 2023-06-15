@@ -13,7 +13,7 @@ type LeftProps = {};
 const listItems = [
   { label: "Manager", url: "/manager" },
   { label: "Builder", url: "/builder" },
-  { label: "Media", url: "/media" },
+  { label: "Media", url: "/medialib" },
   { label: "Settings", url: "/settings" },
 ];
 const Left: React.FC<LeftProps> = () => {
