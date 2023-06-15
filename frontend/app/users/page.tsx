@@ -1,19 +1,16 @@
 "use client"
 
-import { Media, columns } from "./columns"
+import { Users, columns } from "./columns"
 import { DataTable } from "./data-table"
 
 
-async function getData(): Promise<Media[]> {
+async function getData(): Promise<Users[]> {
   // Fetch data from API here.
   return [
     {
-      ProjectId: "728ed52f",
-      Title: "frog.jpg",
-      Category: "Image",
-      Description: "I saw this frog today",
-      UploadedBy : "Dave",
-      UploadedAt : "25/3/23"
+      UserId: "666",
+      Name: "Diablo",
+      Level: "Hell",
     },
     // ...
   ]
