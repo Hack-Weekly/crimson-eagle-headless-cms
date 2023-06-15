@@ -486,6 +486,6 @@ packages
 .vs/
 
 # sqlite
-server.db
+# server.db
 server.db-shm
 server.db-wal
