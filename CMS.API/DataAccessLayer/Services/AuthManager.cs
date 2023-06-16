@@ -75,7 +75,7 @@ namespace CMS.API.DataAccessLayer.Services
                 return registerResult;
             }
 
-            return await _userManager.AddToRoleAsync(_user, "PROJOWNER");
+            return await _userManager.AddToRoleAsync(_user, "PROJECTOWNER");
         }
 
         private async Task<string> GenerateToken()

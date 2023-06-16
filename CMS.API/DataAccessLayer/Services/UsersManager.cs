@@ -65,7 +65,7 @@ namespace CMS.API.DataAccessLayer.Services
                 return _mapper.Map<ResultDTO<APIUserDTO>>(result);
             }
 
-            IdentityResult roleResult = await _userManager.AddToRoleAsync(_user, "PROJUSER");
+            IdentityResult roleResult = await _userManager.AddToRoleAsync(_user, "PROJECTUSER");
 
             if (!roleResult.Succeeded)
             {
