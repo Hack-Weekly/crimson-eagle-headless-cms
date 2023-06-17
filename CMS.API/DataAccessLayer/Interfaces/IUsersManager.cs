@@ -10,5 +10,7 @@ namespace CMS.API.DataAccessLayer.Interfaces
         Task<ResultDTO<APIUserDTO>> CreateNewUser(APIUserCreateDTO DTO);
         Task<ResultDTO<APIUserDTO>> UpdateUser(string id, APIUserUpdateDTO DTO);
         Task<ResultDTO<APIUserDTO>> DeleteUser(string id);
+        Task<string?> GetProjectFromLoggedInUser();
+        string? GetUserId();
     }
 }

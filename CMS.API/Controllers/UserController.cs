@@ -41,8 +41,10 @@ namespace CMS.API.Controllers
             var user = await _usersManager.GetUserById(id);
 
             if (user == null)
+            {
+                _logger.LogInformation($"Couldn't get user by id {id}.");
                 return NotFound();
-
+            }
             return Ok(user);
         }
 
@@ -63,10 +65,15 @@ namespace CMS.API.Controllers
                     ModelState.AddModelError(error.Code, error.Description);
                 }
 
+                _logger.LogInformation($"Couldn't create new user, with errors {ModelState}.");
                 return BadRequest(ModelState);
             }
 
-            if (result.Payload == null) return Problem();
+            if (result.Payload == null)
+            {
+                _logger.LogInformation($"No Payload in CreateNewUser result.");
+                return Problem("User was not created.");
+            }
 
             return Created($"/user/{result.Payload.Id}", result.Payload);
         }
@@ -88,15 +95,21 @@ namespace CMS.API.Controllers
                 {
                     if (error.Code == "404")
                     {
+                        _logger.LogInformation($"Couldn't find user with id {id}.");
                         return NotFound();
                     }
                     ModelState.AddModelError(error.Code, error.Description);
                 }
 
+                _logger.LogInformation($"Couldn't update user, with errors {ModelState}.");
                 return BadRequest(ModelState);
             }
 
-            if (result.Payload == null) return Problem();
+            if (result.Payload == null)
+            {
+                _logger.LogInformation($"No Payload in UpdateUser result.");
+                return Problem("User was not created.");
+            }
 
             return Ok(result.Payload);
         }
@@ -118,11 +131,13 @@ namespace CMS.API.Controllers
                 {
                     if (error.Code == "404")
                     {
+                        _logger.LogInformation($"Couldn't find user with id {id}.");
                         return NotFound();
                     }
                     ModelState.AddModelError(error.Code, error.Description);
                 }
 
+                _logger.LogInformation($"Couldn't update user, with errors {ModelState}.");
                 return BadRequest(ModelState);
             }
 

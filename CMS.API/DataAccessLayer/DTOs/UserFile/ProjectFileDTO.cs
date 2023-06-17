@@ -1,9 +1,13 @@
-﻿using CMS.API.DataAccessLayer.Enumerables;
+﻿using CMS.API.DataAccessLayer.Models;
 
 namespace CMS.API.DataAccessLayer.DTOs.UserFile
 {
-    public class ProjectFileDTO : ProjectFileDTO_Base
+    public class ProjectFileDTO : UpdateProjectFileDTO
     {
-        public string FileUrl { get; set; }
+        public DateTime UploadedAt { get; set; }
+
+        public UploadResult Image { get; set; }
+        public required string UploadedById { get; set; }
+        public required string cmsProjectId { get; set; }
     }
 }

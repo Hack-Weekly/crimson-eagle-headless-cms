@@ -15,6 +15,7 @@ namespace CMS.API.DataAccessLayer
         public DbSet<APIUser>? APIUsers { get; set; }
         public DbSet<cmsProject>? CMSProjects { get; set; }
         public DbSet<ProjectFile>? userFiles { get; set; }
+        public DbSet<UploadResult>? Images { get; set; }
 
         /* Apply Seeders Here */
         protected override void OnModelCreating(ModelBuilder modelBuilder)

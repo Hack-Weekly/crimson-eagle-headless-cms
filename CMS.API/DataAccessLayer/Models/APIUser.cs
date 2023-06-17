@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace CMS.API.DataAccessLayer.Models
 {
@@ -7,7 +8,10 @@ namespace CMS.API.DataAccessLayer.Models
         public required string FName { get; set; }
         public required string LName { get; set; }
         public string? OrganizationName { get; set; }
+
         public required string ProjectId { get; set; }
         public cmsProject Project { get; set; }
+        [ForeignKey("UploadedById")]
+        public IList<ProjectFile>? Files { get; set; }
     }
 }

@@ -49,14 +49,9 @@ namespace CMS.API.DataAccessLayer.Services
             _user = _mapper.Map<APIUser>(DTO);
             _user.UserName = DTO.Email;
 
-            if (_httpContextAccessor.HttpContext == null) return ErrorResult("500", "Context not found");
-            var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirstValue("uid");
-            if (currentUserId == null) return ErrorResult("500", "User Id not found");
-
-            var currentUser = await _userManager.FindByIdAsync(currentUserId);
-            if (currentUser == null) return ErrorResult("500", "User not found");
-
-            _user.ProjectId = currentUser.ProjectId;
+            var projectId = await GetProjectFromLoggedInUser();
+            if (projectId == null) return ErrorResult("500", "Logged in user not found.");
+            _user.ProjectId = projectId;
 
             IdentityResult result = await _userManager.CreateAsync(_user, DTO.Password);
 
@@ -121,6 +116,26 @@ namespace CMS.API.DataAccessLayer.Services
             IdentityResult result = await _userManager.DeleteAsync(_user);
 
             return _mapper.Map<ResultDTO<APIUserDTO>>(result);
+        }
+
+        public async Task<string?> GetProjectFromLoggedInUser()
+        {
+            if (_httpContextAccessor.HttpContext == null)
+                return null;
+            var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirstValue("uid");
+            if (currentUserId == null)
+                return null;
+
+            var _user = await _userManager.FindByIdAsync(currentUserId);
+            if (_user == null)
+                return null;
+
+            return _user.ProjectId;
+        }
+
+        public string? GetUserId()
+        {
+            return (_user != null) ? _user.Id : null;
         }
 
         private ResultDTO<APIUserDTO> NotFoundUser()

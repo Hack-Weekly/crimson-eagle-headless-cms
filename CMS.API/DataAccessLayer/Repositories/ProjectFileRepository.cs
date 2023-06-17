@@ -3,10 +3,7 @@ using AutoMapper.QueryableExtensions;
 using CMS.API.DataAccessLayer.Interfaces;
 using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Pagination;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OData.ModelBuilder;
-using System.Linq;
 
 namespace CMS.API.DataAccessLayer.Repositories
 {
@@ -21,20 +18,22 @@ namespace CMS.API.DataAccessLayer.Repositories
             this._mapper = mapper;
         }
 
-        public async Task<PagedResult<UserFile>> GetProjectFilesAsync<UserFile>([FromBody] int? projectId, [FromQuery] QueryParams QP)
+        public async Task<PagedResult<T>> GetProjectFilesAsync<T>(string projectId, QueryParams QP)
         {
-            var recordCount = await _context.userFiles
+            var recordCount = (_context.userFiles != null) ? await _context.userFiles
                 .Where(projectRecord => projectRecord.cmsProjectId == projectId)
-                .CountAsync();
+                .CountAsync()
+                : 0;
 
-            var recordsList = await _context.userFiles
-                .Skip(QP.NextPageNumber)
+            var recordsList = (_context.userFiles != null) ? await _context.userFiles
+                .Skip(QP.NextPageNumber) // * QP.PageSize
                 .Take(QP.PageSize)
                 .Where(projectRecord => projectRecord.cmsProjectId == projectId)
-                .ProjectTo<UserFile>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+                .ProjectTo<T>(_mapper.ConfigurationProvider)
+                .ToListAsync()
+                : new List<T>();
 
-            return new PagedResult<UserFile>
+            return new PagedResult<T>
             {
                 Records = recordsList,
                 PageNumber = QP.NextPageNumber,
