@@ -1,11 +1,9 @@
-﻿using CloudinaryDotNet.Actions;
-using CMS.API.DataAccessLayer.DTOs.APIUser;
+﻿using AutoMapper;
+using CloudinaryDotNet.Actions;
 using CMS.API.DataAccessLayer.DTOs.UserFile;
 using CMS.API.DataAccessLayer.Interfaces;
 using CMS.API.DataAccessLayer.Models;
 using CMS.API.DataAccessLayer.Pagination;
-using CMS.API.DataAccessLayer.Services;
-using CMS.API.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,71 +16,209 @@ namespace CMS.API.Controllers
     public class DashboardController : ControllerBase
     {
         private readonly IMediaService _IMS;
-        private IAuthManager _IAM;
+        private IUsersManager _usersManager;
         private ILogger<DashboardController> _LOGS;
         private IProjectFileRepository _IUF;
-        private VideoUploadResult _newVideo;
-        private ImageUploadResult _newImage;
+        private IMediaRepository _mediaRepository;
+        private IMapper _mapper;
+        private VideoUploadResult? _newVideo;
+        private ImageUploadResult? _newImage;
 
-        public DashboardController(IMediaService IMS, IAuthManager IAM, ILogger<DashboardController> LOGS, IProjectFileRepository IUF)
+        public DashboardController(
+            IMediaService IMS,
+            IUsersManager usersManager,
+            ILogger<DashboardController> LOGS,
+            IProjectFileRepository IUF,
+            IMapper mapper,
+            IMediaRepository mediaRepository
+        )
         {
             this._IMS = IMS;
-            this._IAM = IAM;
+            this._usersManager = usersManager;
             this._LOGS = LOGS;
             this._IUF = IUF;
+            this._mediaRepository = mediaRepository;
+            this._mapper = mapper;
         }
 
         // GET: <DashboardController>
         [HttpGet]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-        public async Task<ActionResult<PagedResult<ProjectFileDTO>>> GetPagedFiles(int projectId, [FromQuery] QueryParams QP)
+        public async Task<ActionResult<PagedResult<ProjectFileDTO>>> GetPagedFiles([FromQuery] QueryParams QP)
         {
-           var paged_Project_Files = await _IUF.GetProjectFilesAsync<ProjectFileDTO>(projectId, QP);
+            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            if (projectId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user's project id.");
+                return Problem("Project not found.");
+            }
+
+            var paged_Project_Files = await _IUF.GetProjectFilesAsync<ProjectFileDTO>(projectId, QP);
 
             return Ok(paged_Project_Files);
         }
 
         // GET: <DashboardController>
-        [HttpPost]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
+        [HttpGet("{id}")]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] // missing or malformed id
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // file not found
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-        //public async Task<ActionResult<ProjectFile>> AddProjectFile(UploadProjectFileDTO DTO)
-        public async Task<ActionResult> AddProjectFile(UploadProjectFileDTO DTO)
+        public async Task<ActionResult<PagedResult<ProjectFileDTO>>> GetProjectFile(int id)
         {
-            var isVideo = await IsNewFileVideo(DTO.NewFile);
+            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            if (projectId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user's project id.");
+                return Problem("Project not found.");
+            }
 
-            if (isVideo == 3) _newVideo = await _IMS.AddVideoAsync(DTO.NewFile);
-            else _newImage = await _IMS.AddPhotoAsync(DTO.NewFile);
+            var projectFile = await _IUF.GetAsync(id);
+
+            if (projectFile == null)
+            {
+                _LOGS.LogInformation($"Couldn't find media with id {id}.");
+                return NotFound();
+            }
+
+            if (projectFile.cmsProjectId != projectId)
+            {
+                _LOGS.LogInformation($"Logged in user doesn't have the same project id as media {id}.");
+                return Problem("You don't have access to this file.");
+            }
+
+            return Ok(_mapper.Map<ProjectFile, ProjectFileDTO>(projectFile));
+        }
+
+        // POST: <DashboardController>
+        // watch out! Not application/json
+        [HttpPost]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
+        [ProducesResponseType(StatusCodes.Status201Created)] // if okay        
+        public async Task<ActionResult<ProjectFileDTO>> AddProjectFile([FromForm] UploadProjectFileDTO DTO)
+        {
+            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            if (projectId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user's project id.");
+                return Problem("Project not found.");
+            }
+
+            var currentUserId = _usersManager.GetUserId();
+            if (currentUserId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user.");
+                return Problem("Logged in user not found.");
+            }
+
+            var isVideo = IsNewFileVideo(DTO.NewFile);
+
+            DataAccessLayer.Models.UploadResult uploadResult;
+            if (isVideo == 3)
+            {
+                _newVideo = await _IMS.AddVideoAsync(DTO.NewFile);
+                if (_newVideo.Error != null)
+                {
+                    _LOGS.LogInformation($"Cloudinary upload error: {_newVideo.Error.Message}.");
+                    return Problem(_newVideo.Error.Message);
+                }
+                uploadResult = _mapper.Map<VideoUploadResult, DataAccessLayer.Models.UploadResult>(_newVideo);
+            }
+            else
+            {
+                _newImage = await _IMS.AddPhotoAsync(DTO.NewFile);
+                if (_newImage.Error != null)
+                {
+                    _LOGS.LogInformation($"Cloudinary upload error: {_newImage.Error.Message}.");
+                    return Problem(_newImage.Error.Message);
+                }
+                uploadResult = _mapper.Map<ImageUploadResult, DataAccessLayer.Models.UploadResult>(_newImage);
+            }
+            await _mediaRepository.AddAsync(uploadResult);
 
             var newProjectFile = new ProjectFile
             {
-                cmsProjectId = DTO.cmsProjectId,
-                Title = DTO.Title,
-                Category = DTO.Category,
-                Description = DTO.Description,
-                UploadedById = DTO.UploadedById,
+                Title = DTO.NewFile.FileName,
+                ImageId = uploadResult.PublicId,
                 UploadedAt = DateTime.Now,
+                UploadedById = currentUserId,
+                cmsProjectId = projectId,
             };
 
             await _IUF.AddAsync(newProjectFile);
-            
-            // Debug
-            return Ok();
-            // Here we want to send back to the dashboard
-            // return Redirect("");
+
+            return Created(uploadResult.SecureUrl, _mapper.Map<ProjectFile, ProjectFileDTO>(newProjectFile));
+        }
+
+        [HttpPut("{id}")]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
+        [ProducesResponseType(StatusCodes.Status200OK)] // if okay
+        public async Task<ActionResult<ProjectFileDTO>> UpdateProjectFile(int id, [FromBody] UpdateProjectFileDTO DTO)
+        {
+            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            if (projectId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user's project id.");
+                return Problem("Project not found.");
+            }
+
+            var projectFile = await _IUF.GetAsync(id);
+
+            if (projectFile == null)
+            {
+                _LOGS.LogInformation($"Couldn't find media with id {id}.");
+                return NotFound();
+            }
+
+            if (projectFile.cmsProjectId != projectId)
+            {
+                _LOGS.LogInformation($"Logged in user doesn't have the same project id as media {id}.");
+                return Problem("You don't have access to this file.");
+            }
+
+            projectFile = _mapper.Map<UpdateProjectFileDTO, ProjectFile>(DTO, projectFile);
+
+            await _IUF.UpdateAsync(projectFile);
+
+            return Ok(projectFile);
         }
 
         // DELETE: /5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "ProjectUser, ProjectEditor, ProjectOwner")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)] // if validation fails, send this
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
+        [ProducesResponseType(StatusCodes.Status204NoContent)] // if okay
         public async Task<IActionResult> DeleteProjectFile(int id)
         {
+            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            if (projectId == null)
+            {
+                _LOGS.LogInformation($"Couldn't get logged in user's project id.");
+                return Problem("Project not found.");
+            }
 
             var projectFileSearchingFor = await _IUF.GetAsync(id);
 
-            if (projectFileSearchingFor == null) throw new NotFoundException(nameof(DeleteProjectFile), id);
+            if (projectFileSearchingFor == null)
+            {
+                _LOGS.LogInformation($"Couldn't find media with id {id}.");
+                return NotFound();
+            }
+
+            if (projectFileSearchingFor.cmsProjectId != projectId)
+            {
+                _LOGS.LogInformation($"Logged in user doesn't have the same project id as media {id}.");
+                return Problem("You don't have access to this file.");
+            }
 
             await _IUF.DeleteAsync(id);
 
@@ -94,7 +230,7 @@ namespace CMS.API.Controllers
             return _IUF.Exists(id);
         }
 
-        private async Task<int> IsNewFileVideo(IFormFile uploadedFile)
+        private int IsNewFileVideo(IFormFile uploadedFile)
         {
             int fileIsVideo;
             // 3 = video;

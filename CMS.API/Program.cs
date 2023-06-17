@@ -123,7 +123,8 @@ builder.Services.AddScoped<IUsersManager, UsersManager>();
 /* IMediaService */
 builder.Services.AddScoped<IMediaService, MediaService>();
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
-
+builder.Services.AddScoped<IProjectFileRepository, ProjectFileRepository>();
+builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 
 /* Authentication plus JWT Bearer */
 builder.Services.AddAuthentication(options =>

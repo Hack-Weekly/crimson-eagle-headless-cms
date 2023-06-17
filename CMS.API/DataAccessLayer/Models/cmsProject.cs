@@ -14,8 +14,10 @@ namespace CMS.API.DataAccessLayer.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime LastUpdated { get; set; }
         public bool IsActive { get; set; } = true;
+
         [ForeignKey("ProjectId")]
         public IList<APIUser>? Users { get; set; }
+        [ForeignKey("cmsProjectId")]
         public IList<ProjectFile>? Files { get; set; }
     }
 }
