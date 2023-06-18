@@ -1,30 +1,30 @@
 "use client";
 
-import { ThemeTypes, themeContext } from "@/context/themeContext";
+import { ToggleTheme } from "@/redux/features/theme/ThemeSlice";
+import { RootState } from "@/redux/store/store";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Label } from "@radix-ui/react-label";
 import {
-  NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Switch } from "../ui/switch";
 
 type RightProps = {};
 
 const Right: React.FC<RightProps> = () => {
-  const context = useContext(themeContext);
+  const theme = useSelector((state: RootState) => state.Theme.theme);
+  const dispatch = useDispatch();
   return (
     <NavigationMenuList className="flex  items-center justify-center gap-4">
       <NavigationMenuItem className="flex items-center gap-1">
         <Switch
           onCheckedChange={() => {
-            context?.dispatch({ type: ThemeTypes.ToggleTheme });
+            dispatch(ToggleTheme());
           }}
-          checked={context?.theme === "light" ? true : false}
+          checked={theme === "light" ? true : false}
           id="dark-mode"
         />
         <Label htmlFor="dark-mode">Dark mood</Label>
