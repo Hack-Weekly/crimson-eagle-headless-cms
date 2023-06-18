@@ -220,6 +220,13 @@ namespace CMS.API.Controllers
                 return Problem("You don't have access to this file.");
             }
 
+            DeletionResult result = await _IMS.DeleteMediaAsync(projectFileSearchingFor.Image.PublicId);
+            if (result.Result != "ok")
+            {
+                _LOGS.LogInformation($"Cloudinary delete result was not 'ok' for media {id}: {result.Result}.");
+                return Problem("The media could not be deleted on Cloudinary.");
+            }
+
             await _IUF.DeleteAsync(id);
 
             return NoContent();
