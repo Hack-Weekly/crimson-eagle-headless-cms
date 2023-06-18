@@ -19,7 +19,7 @@ namespace CMS.API.DataAccessLayer.Services
         }
         public async Task<ImageUploadResult> AddPhotoAsync(IFormFile image)
         {
-            var beginUpload= new ImageUploadResult();
+            var beginUpload = new ImageUploadResult();
 
             if (image.Length > 0)
             {
@@ -59,13 +59,11 @@ namespace CMS.API.DataAccessLayer.Services
             }
 
             return beginUpload;
-        } 
+        }
 
-        public async Task<DeletionResult> DeleteMediaAsync(string URL)
+        public async Task<DeletionResult> DeleteMediaAsync(string publicId)
         {
-            var parsedURL = URL.Split('/').Last().Split('.')[0];
-
-            var beginDelete = new DeletionParams(parsedURL);
+            var beginDelete = new DeletionParams(publicId);
 
             return await _cloudinary.DestroyAsync(beginDelete);
         }
