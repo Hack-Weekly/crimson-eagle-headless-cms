@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
-import { Checkbox } from "@/components/ui/checkbox"
- 
-import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox";
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,18 +12,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Media = {
-  ProjectId: string
-  Title: string
-  Category: string
-  Description: string
-  UploadedBy: string
-  UploadedAt: string
-}
+  ProjectId: string;
+  Title: string;
+  Category: string;
+  Description: string;
+  UploadedBy: string;
+  UploadedAt: string;
+};
 
 export const columns: ColumnDef<Media>[] = [
   {
@@ -61,7 +61,7 @@ export const columns: ColumnDef<Media>[] = [
           File Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
   {
@@ -83,15 +83,15 @@ export const columns: ColumnDef<Media>[] = [
           Upload Date
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
 
   {
     id: "actions",
     cell: ({ row }) => {
-      const media = row.original
- 
+      const media = row.original;
+
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -109,10 +109,10 @@ export const columns: ColumnDef<Media>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>More Info</DropdownMenuItem>
-            <DropdownMenuItem className='text-red-500'>Delete</DropdownMenuItem>
+            <DropdownMenuItem className="text-red-500">Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      )
+      );
     },
   },
-]
+];
