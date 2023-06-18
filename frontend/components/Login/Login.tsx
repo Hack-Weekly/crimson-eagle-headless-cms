@@ -9,13 +9,13 @@ const Login: React.FC<LoginProps> = () => {
     <div
       className="
     flex gap-4 flex-col
-    w-full bg-white border-2 rounded-md px-10 py-12 drop-shadow-xl"
+    w-full  border-2 rounded-md px-10 py-12 drop-shadow-xl"
     >
       <h2 className="text-3xl">Log in</h2>
       <LoginForm />
       <div className="w-full flex align-middle justify-center ">
         Create new account?{" "}
-        <Link href={"/signup"} className="text-slate-400 cursor-pointer">
+        <Link href={"/signup"} className=" cursor-pointer">
           Sign up
         </Link>
       </div>

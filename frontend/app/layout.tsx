@@ -1,6 +1,8 @@
-import Navbar from "@/components/Navbar/Navbar";
+"use client";
+import Layout from "@/components/Layout/Layout";
+import Provider from "@/providers/Provider";
+import "@/styles/globals.css";
 import { Inter } from "next/font/google";
-import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="">
-          <Navbar />
-          {children}
-        </div>
-      </body>
-    </html>
+    <Provider>
+      <Layout>{children}</Layout>
+    </Provider>
   );
 }

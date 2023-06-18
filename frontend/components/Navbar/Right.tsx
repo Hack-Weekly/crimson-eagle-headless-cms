@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeTypes, themeContext } from "@/context/themeContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Label } from "@radix-ui/react-label";
 import {
@@ -9,16 +10,23 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@radix-ui/react-navigation-menu";
-import React from "react";
+import React, { useContext } from "react";
 import { Switch } from "../ui/switch";
 
 type RightProps = {};
 
 const Right: React.FC<RightProps> = () => {
+  const context = useContext(themeContext);
   return (
     <NavigationMenuList className="flex  items-center justify-center gap-4">
       <NavigationMenuItem className="flex items-center gap-1">
-        <Switch id="dark-mode" />
+        <Switch
+          onCheckedChange={() => {
+            context?.dispatch({ type: ThemeTypes.ToggleTheme });
+          }}
+          checked={context?.theme === "light" ? true : false}
+          id="dark-mode"
+        />
         <Label htmlFor="dark-mode">Dark mood</Label>
       </NavigationMenuItem>
       <NavigationMenuItem>
@@ -26,7 +34,7 @@ const Right: React.FC<RightProps> = () => {
           <AvatarImage
             className="w-full h-full object-contain"
             src="https://github.com/shadcn.png"
-            alt="@shadcn"
+            alt="avatar"
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
