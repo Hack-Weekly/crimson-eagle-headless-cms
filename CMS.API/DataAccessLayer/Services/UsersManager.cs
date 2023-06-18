@@ -126,7 +126,7 @@ namespace CMS.API.DataAccessLayer.Services
             if (currentUserId == null)
                 return null;
 
-            var _user = await _userManager.FindByIdAsync(currentUserId);
+            _user = await _userManager.FindByIdAsync(currentUserId);
             if (_user == null)
                 return null;
 
