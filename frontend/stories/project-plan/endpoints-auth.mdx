@@ -1,0 +1,98 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Project Plan/Endpoints: Auth" />
+
+# Backend Endpoints
+
+<h2 className="sb-unstyled mt-4 mb-2 text-2xl text-zinc-500 uppercase">
+	Authentication
+</h2>
+
+<h3 className="sb-unstyled text-xl text-zinc-400">POST /auth/register</h3>
+
+Register to the administration interface.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json"
+}
+```
+
+```json Body
+{
+	"fName": "John",
+	"lName": "Doe",
+	"email": "test@test.com",
+	"password": "pAssw0rd?",
+	"confirmPassword": "pAssw0rd?",
+	"projectName": "Test Project",
+	"organizationName": "ACME" // optional
+}
+```
+
+Response:
+
+Status 200
+
+<h3 className="sb-unstyled text-xl text-zinc-400">POST /auth/login</h3>
+
+Login to the administration interface.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json"
+}
+```
+
+```json Body
+{
+	"email": "test@test.com",
+	"password": "pAssw0rd?"
+}
+```
+
+Response:
+
+```json
+{
+	"userId": "0461bb50-8f04-4657-8176-f7d4753b5835",
+	"companyName": "ACME", // or null
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwianRpIjoiMzc0NjUwNzAtZjNjNS00ZmU2LWEzZGQtY2JkNDEzNTZlY2Q0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwidWlkIjoiMDQ2MWJiNTAtOGYwNC00NjU3LTgxNzYtZjdkNDc1M2I1ODM1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiUHJvamVjdE93bmVyIiwiZXhwIjoxNjg2NjY2ODMzLCJpc3MiOiJDcmltc29uLUVhZ2xlIiwiYXVkIjoiQ0UtQ01TLUFQSSJ9.OGHEw7C-AShWD1kCVOqpXx0wOl2zYkJMagfFp-gE0sw",
+	"refreshToken": "CfDJ8EEFqjefKvhHpdKG5m7+zSl/oLTnnekZMGXQspxJu9zCDVLzPF1lVnpf1y5eqKWRiabZRNs2XvOHdJeJte2yDvq7ukY+r95ldTdLM/5gUYYreM7yAit8BQEgF5/G1Uw5s2b655sSjAkBis2VOVUEkqPBU+DnZPPrDkV3HP4x9THrTgEQYBil9fgoRTcTik3adqp0TxqUfdRozJpyF04kp8ETeqPlgCNyBqn7wp9D97tx"
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">POST /auth/refreshToken</h3>
+
+Refresh authentication token. Accepts the response from login.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json"
+}
+```
+
+```json Body
+{
+	"userId": "6883cd81-6e52-4a73-a85e-dbe39dbe9031",
+	"companyName": "",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwianRpIjoiMDJkMWU1NmUtNTNiOC00MDBlLTlmYTAtMTI2Yjc0ZjgyZjYwIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwidWlkIjoiNjg4M2NkODEtNmU1Mi00YTczLWE4NWUtZGJlMzlkYmU5MDMxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiUHJvamVjdE93bmVyIiwiZXhwIjoxNjg2NjU1NzM4LCJpc3MiOiJDcmltc29uLUVhZ2xlIiwiYXVkIjoiQ0UtQ01TLUFQSSJ9.boq27DPGCCqzHrj7XV658D2k1RyZ0ZZOVoj_ITjbOow",
+	"refreshToken": "CfDJ8EEFqjefKvhHpdKG5m7+zSkZQJnlyPlYuyV6LW5mNkOuHwXgOAp9eC1Z3i/g1g6Gq1vB49Nbn3W8PKW4+XAz/jNLqM41ff+s7rbtW1V2xI8Kk9WdIZAkNdBWMRKYuDtyhTrqJfC/7qwLnynrRdC0kKtr7IvGVlyHSycR0F8nawAWr+Kh2+U0ReA1eZQpYuaDCpyEEyt/kfbKuGY78X8JYkkCEkOlW9r/1eZtqyPeqRhD"
+}
+```
+
+Response:
+
+```json
+{
+	"userId": "0461bb50-8f04-4657-8176-f7d4753b5835",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwianRpIjoiMzc0NjUwNzAtZjNjNS00ZmU2LWEzZGQtY2JkNDEzNTZlY2Q0IiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwidWlkIjoiMDQ2MWJiNTAtOGYwNC00NjU3LTgxNzYtZjdkNDc1M2I1ODM1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiUHJvamVjdE93bmVyIiwiZXhwIjoxNjg2NjY2ODMzLCJpc3MiOiJDcmltc29uLUVhZ2xlIiwiYXVkIjoiQ0UtQ01TLUFQSSJ9.OGHEw7C-AShWD1kCVOqpXx0wOl2zYkJMagfFp-gE0sw",
+	"refreshToken": "CfDJ8EEFqjefKvhHpdKG5m7+zSl/oLTnnekZMGXQspxJu9zCDVLzPF1lVnpf1y5eqKWRiabZRNs2XvOHdJeJte2yDvq7ukY+r95ldTdLM/5gUYYreM7yAit8BQEgF5/G1Uw5s2b655sSjAkBis2VOVUEkqPBU+DnZPPrDkV3HP4x9THrTgEQYBil9fgoRTcTik3adqp0TxqUfdRozJpyF04kp8ETeqPlgCNyBqn7wp9D97tx"
+}
+```
