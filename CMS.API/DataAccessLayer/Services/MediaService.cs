@@ -1,8 +1,6 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using CMS.API.DataAccessLayer.Interfaces;
-using CMS.API.DataAccessLayer.Services.Helpers;
-using Microsoft.Extensions.Options;
 
 namespace CMS.API.DataAccessLayer.Services
 {

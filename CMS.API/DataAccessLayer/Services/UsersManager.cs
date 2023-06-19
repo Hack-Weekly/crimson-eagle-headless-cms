@@ -46,21 +46,38 @@ namespace CMS.API.DataAccessLayer.Services
 
         public async Task<ResultDTO<APIUserDTO>> CreateNewUser(APIUserCreateDTO DTO)
         {
-            _user = _mapper.Map<APIUser>(DTO);
-            _user.UserName = DTO.Email;
+            APIUser newUser = _mapper.Map<APIUser>(DTO);
+            newUser.UserName = DTO.Email;
 
-            var projectId = await GetProjectFromLoggedInUser();
+            string? projectId = await GetProjectFromLoggedInUser();
             if (projectId == null) return ErrorResult("500", "Logged in user not found.");
-            _user.ProjectId = projectId;
+            newUser.ProjectId = projectId;
 
-            IdentityResult result = await _userManager.CreateAsync(_user, DTO.Password);
+            // check for duplicate emails
+            APIUser? sameEmailUser = await _userManager.FindByEmailAsync(DTO.Email);
+            if (sameEmailUser != null)
+            {
+                return new ResultDTO<APIUserDTO>
+                {
+                    Succeeded = false,
+                    Errors = new List<ErrorMessage>(){
+                        new ErrorMessage
+                        {
+                            Code = "400",
+                            Description = "E-mail already taken.",
+                        }
+                    }
+                };
+            }
+
+            IdentityResult result = await _userManager.CreateAsync(newUser, DTO.Password);
 
             if (!result.Succeeded)
             {
                 return _mapper.Map<ResultDTO<APIUserDTO>>(result);
             }
 
-            IdentityResult roleResult = await _userManager.AddToRoleAsync(_user, "PROJECTUSER");
+            IdentityResult roleResult = await _userManager.AddToRoleAsync(newUser, "PROJECTUSER");
 
             if (!roleResult.Succeeded)
             {
@@ -70,19 +87,19 @@ namespace CMS.API.DataAccessLayer.Services
             return new ResultDTO<APIUserDTO>
             {
                 Succeeded = true,
-                Payload = _mapper.Map<APIUser, APIUserDTO>(_user),
+                Payload = _mapper.Map<APIUser, APIUserDTO>(newUser),
             };
         }
 
         public async Task<ResultDTO<APIUserDTO>> UpdateUser(string id, APIUserUpdateDTO DTO)
         {
-            _user = await _userManager.FindByIdAsync(id);
+            APIUser? updateUser = await _userManager.FindByIdAsync(id);
 
-            if (_user == null) return NotFoundUser();
+            if (updateUser == null) return NotFoundUser();
 
-            _user = _mapper.Map<APIUserUpdateDTO, APIUser>(DTO, _user);
+            updateUser = _mapper.Map<APIUserUpdateDTO, APIUser>(DTO, updateUser);
 
-            IdentityResult result = await _userManager.UpdateAsync(_user);
+            IdentityResult result = await _userManager.UpdateAsync(updateUser);
 
             if (!result.Succeeded)
             {
@@ -91,8 +108,8 @@ namespace CMS.API.DataAccessLayer.Services
 
             if (DTO.Password != null)
             {
-                var token = await _userManager.GeneratePasswordResetTokenAsync(_user);
-                IdentityResult resetResult = await _userManager.ResetPasswordAsync(_user, token, DTO.Password);
+                string token = await _userManager.GeneratePasswordResetTokenAsync(updateUser);
+                IdentityResult resetResult = await _userManager.ResetPasswordAsync(updateUser, token, DTO.Password);
 
                 if (!resetResult.Succeeded)
                 {
@@ -103,17 +120,17 @@ namespace CMS.API.DataAccessLayer.Services
             return new ResultDTO<APIUserDTO>
             {
                 Succeeded = true,
-                Payload = _mapper.Map<APIUser, APIUserDTO>(_user),
+                Payload = _mapper.Map<APIUser, APIUserDTO>(updateUser),
             };
         }
 
         public async Task<ResultDTO<APIUserDTO>> DeleteUser(string id)
         {
-            _user = await _userManager.FindByIdAsync(id);
+            APIUser? deleteUser = await _userManager.FindByIdAsync(id);
 
-            if (_user == null) return NotFoundUser();
+            if (deleteUser == null) return NotFoundUser();
 
-            IdentityResult result = await _userManager.DeleteAsync(_user);
+            IdentityResult result = await _userManager.DeleteAsync(deleteUser);
 
             return _mapper.Map<ResultDTO<APIUserDTO>>(result);
         }

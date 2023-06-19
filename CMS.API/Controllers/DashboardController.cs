@@ -68,16 +68,16 @@ namespace CMS.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)] // file not found
         [ProducesResponseType(StatusCodes.Status500InternalServerError)] // If client issues
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
-        public async Task<ActionResult<PagedResult<ProjectFileDTO>>> GetProjectFile(int id)
+        public async Task<ActionResult<ProjectFileDTO>> GetProjectFile(int id)
         {
-            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            string? projectId = await _usersManager.GetProjectFromLoggedInUser();
             if (projectId == null)
             {
                 _LOGS.LogInformation($"Couldn't get logged in user's project id.");
                 return Problem("Project not found.");
             }
 
-            var projectFile = await _IUF.GetAsync(id);
+            ProjectFile? projectFile = await _IUF.GetAsync(id);
 
             if (projectFile == null)
             {
@@ -163,14 +163,14 @@ namespace CMS.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)] // if okay
         public async Task<ActionResult<ProjectFileDTO>> UpdateProjectFile(int id, [FromBody] UpdateProjectFileDTO DTO)
         {
-            var projectId = await _usersManager.GetProjectFromLoggedInUser();
+            string? projectId = await _usersManager.GetProjectFromLoggedInUser();
             if (projectId == null)
             {
                 _LOGS.LogInformation($"Couldn't get logged in user's project id.");
                 return Problem("Project not found.");
             }
 
-            var projectFile = await _IUF.GetAsync(id);
+            ProjectFile? projectFile = await _IUF.GetAsync(id);
 
             if (projectFile == null)
             {
@@ -188,7 +188,7 @@ namespace CMS.API.Controllers
 
             await _IUF.UpdateAsync(projectFile);
 
-            return Ok(projectFile);
+            return Ok(_mapper.Map<ProjectFile, ProjectFileDTO>(projectFile));
         }
 
         // DELETE: /5

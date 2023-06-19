@@ -60,7 +60,7 @@ namespace CMS.API.DataAccessLayer.Services
 
             _user.UserName = DTO.Email;
 
-            var project = await _csmProjectRepository.AddAsync(new cmsProject
+            cmsProject project = await _csmProjectRepository.AddAsync(new cmsProject
             {
                 Name = DTO.ProjectName,
                 LastUpdated = DateTime.Now,
@@ -68,7 +68,7 @@ namespace CMS.API.DataAccessLayer.Services
 
             _user.Project = project;
 
-            var registerResult = await _userManager.CreateAsync(_user, DTO.Password);
+            IdentityResult registerResult = await _userManager.CreateAsync(_user, DTO.Password);
 
             if (!registerResult.Succeeded)
             {

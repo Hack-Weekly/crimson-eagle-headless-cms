@@ -29,10 +29,8 @@ namespace CMS.API.DataAccessLayer.Repositories
         }
 
         /* READ */
-        public async Task<T> GetAsync(int? id)
+        public async Task<T?> GetAsync(int id)
         {
-            if (id is null) return null;
-
             return await _context.Set<T>().FindAsync(id); // returns one
         }
 
@@ -80,9 +78,11 @@ namespace CMS.API.DataAccessLayer.Repositories
         public async Task DeleteAsync(int id)
         {
             var EntitySearchingFor = await GetAsync(id);
-            _context.Set<T>().Remove(EntitySearchingFor); // this cannot be called asynchronously
-
-            await _context.SaveChangesAsync();
+            if (EntitySearchingFor != null)
+            {
+                _context.Set<T>().Remove(EntitySearchingFor); // this cannot be called asynchronously
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

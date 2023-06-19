@@ -40,5 +40,13 @@ namespace CMS.API.DataAccessLayer.Repositories
                 TotalCount = recordCount
             };
         }
+
+        public new async Task<ProjectFile?> GetAsync(int id)
+        {
+            return (_context.userFiles != null) ? await _context.userFiles
+                .Include(f => f.Image)
+                .FirstOrDefaultAsync(e => e.Id == id)
+                : null;
+        }
     }
 }

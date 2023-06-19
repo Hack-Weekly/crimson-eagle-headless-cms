@@ -28,6 +28,10 @@ namespace CMS.API.DataAccessLayer
             /* cmsProject Seeder */
             modelBuilder.ApplyConfiguration(new cmsProjectConfigurations());
 
+            // media
+            modelBuilder.ApplyConfiguration(new MediaConfigurations());
+            modelBuilder.ApplyConfiguration(new ProjectFileConfigurations());
+
             // generate id string for cmsProject
             modelBuilder.Entity<cmsProject>().Property(x => x.Id)
                 .ValueGeneratedOnAdd()

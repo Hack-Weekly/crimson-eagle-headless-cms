@@ -24,6 +24,7 @@ namespace CMS.API.Configurations
             CreateMap<ProjectFile, ProjectFileDTO>().ReverseMap(); // Mapper will convert to and from DTO
             CreateMap<ImageUploadResult, DataAccessLayer.Models.UploadResult>();
             CreateMap<VideoUploadResult, DataAccessLayer.Models.UploadResult>();
+            CreateMap<UpdateProjectFileDTO, ProjectFile>();
         }
     }
 }
