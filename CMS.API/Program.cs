@@ -29,12 +29,22 @@ builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
     DbOptions.UseSqlServer(CONNECTION_STRING);
 }); */
 
+var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 var CONNECTION_STRING = "DataSource=server.db; Cache=Shared";
-
-builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+if (string.IsNullOrEmpty(databaseUrl))
 {
-    DbOptions.UseSqlite(CONNECTION_STRING);
-});
+    builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+    {
+        DbOptions.UseSqlite(CONNECTION_STRING);
+    });
+}
+else
+{
+    builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
+    {
+        DbOptions.UseNpgsql(ConnectionHelper.BuildConnectionString(databaseUrl));
+    });
+}
 
 // add swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -109,7 +119,6 @@ builder.Services.AddIdentityCore<APIUser>()
 
 /* Generic Interface and Repository */
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); // uses these interfaces/classes
-
 
 /* IcmsProjectRepository */
 builder.Services.AddScoped<IcmsProjectRepository, cmsProjectRepository>();
@@ -195,13 +204,15 @@ var app = builder.Build();
 // seed users and roles
 using (var scope = app.Services.CreateScope())
 {
+    // migrate
+    await DataHelper.ManageDataAsync(scope.ServiceProvider);
+
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<APIUser>>();
     await UsersAndRolesSeeder.Seed(userManager);
 }
 
 /* Set up caching */
 app.UseResponseCaching();
-
 
 app.Use(async (context, next) =>
 {
