@@ -209,6 +209,8 @@ using (var scope = app.Services.CreateScope())
 
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<APIUser>>();
     await UsersAndRolesSeeder.Seed(userManager);
+
+    await ProjectFilesSeeder.Seed(scope.ServiceProvider.GetRequiredService<CMSDbContext>());
 }
 
 /* Set up caching */
