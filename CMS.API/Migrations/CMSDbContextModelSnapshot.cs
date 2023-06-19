@@ -145,18 +145,6 @@ namespace CMS.API.Migrations
                     b.HasIndex("cmsProjectId");
 
                     b.ToTable("userFiles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "An image of the red planet Mars.",
-                            ImageId = "zub4iesjxuq8z47601aw",
-                            Title = "Mars",
-                            UploadedAt = new DateTime(2023, 6, 19, 15, 23, 49, 587, DateTimeKind.Utc).AddTicks(6166),
-                            UploadedById = "projectoneowner-manuallyseededid",
-                            cmsProjectId = "projectoneidstring"
-                        });
                 });
 
             modelBuilder.Entity("CMS.API.DataAccessLayer.Models.UploadResult", b =>
@@ -189,18 +177,6 @@ namespace CMS.API.Migrations
                     b.HasKey("PublicId");
 
                     b.ToTable("Images");
-
-                    b.HasData(
-                        new
-                        {
-                            PublicId = "zub4iesjxuq8z47601aw",
-                            Format = "jpg",
-                            Height = 500,
-                            ResourceType = "image",
-                            SecureUrl = "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg",
-                            Url = "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg",
-                            Width = 500
-                        });
                 });
 
             modelBuilder.Entity("CMS.API.DataAccessLayer.Models.cmsProject", b =>
@@ -236,14 +212,14 @@ namespace CMS.API.Migrations
                         {
                             Id = "projectoneidstring",
                             IsActive = true,
-                            LastUpdated = new DateTime(2023, 6, 19, 15, 23, 49, 587, DateTimeKind.Utc).AddTicks(5393),
+                            LastUpdated = new DateTime(2023, 6, 19, 19, 4, 20, 561, DateTimeKind.Utc).AddTicks(2478),
                             Name = "project 1"
                         },
                         new
                         {
                             Id = "projecttwoidstring",
                             IsActive = true,
-                            LastUpdated = new DateTime(2023, 6, 19, 15, 23, 49, 587, DateTimeKind.Utc).AddTicks(5396),
+                            LastUpdated = new DateTime(2023, 6, 19, 19, 4, 20, 561, DateTimeKind.Utc).AddTicks(2481),
                             Name = "project 2"
                         });
                 });
