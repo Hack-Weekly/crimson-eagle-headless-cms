@@ -6,21 +6,6 @@ namespace CMS.API.DataAccessLayer.Configurations
     {
         public static async Task Seed(CMSDbContext context)
         {
-            ProjectFile file = new ProjectFile
-            {
-                Id = 1,
-                Title = "Mars",
-                Description = "An image of the red planet Mars.",
-                UploadedAt = DateTime.UtcNow,
-                UploadedById = "projectoneowner-manuallyseededid",
-                cmsProjectId = "projectoneidstring",
-                ImageId = "zub4iesjxuq8z47601aw",
-            };
-
-            if (context.userFiles != null)
-            {
-                await context.userFiles.AddAsync(file);
-            }
 
             UploadResult media = new UploadResult
             {
@@ -36,6 +21,22 @@ namespace CMS.API.DataAccessLayer.Configurations
             if (context.Images != null)
             {
                 await context.Images.AddAsync(media);
+            }
+
+            ProjectFile file = new ProjectFile
+            {
+                Id = 1,
+                Title = "Mars",
+                Description = "An image of the red planet Mars.",
+                UploadedAt = DateTime.UtcNow,
+                UploadedById = "projectoneowner-manuallyseededid",
+                cmsProjectId = "projectoneidstring",
+                ImageId = "zub4iesjxuq8z47601aw",
+            };
+
+            if (context.userFiles != null)
+            {
+                await context.userFiles.AddAsync(file);
             }
         }
     }

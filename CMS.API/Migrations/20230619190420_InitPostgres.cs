@@ -256,16 +256,6 @@ namespace CMS.API.Migrations
                     { "projecttwoidstring", true, "project 2" }
                 });
 
-            migrationBuilder.InsertData(
-                table: "Images",
-                columns: new[] { "PublicId", "Format", "Height", "ResourceType", "SecureUrl", "Url", "Width" },
-                values: new object[] { "zub4iesjxuq8z47601aw", "jpg", 500, "image", "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg", "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg", 500 });
-
-            migrationBuilder.InsertData(
-                table: "userFiles",
-                columns: new[] { "Id", "Category", "Description", "ImageId", "Title", "UploadedAt", "UploadedById", "cmsProjectId" },
-                values: new object[] { 1, null, "An image of the red planet Mars.", "zub4iesjxuq8z47601aw", "Mars", new DateTime(2023, 6, 19, 15, 23, 49, 587, DateTimeKind.Utc).AddTicks(6166), "projectoneowner-manuallyseededid", "projectoneidstring" });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
