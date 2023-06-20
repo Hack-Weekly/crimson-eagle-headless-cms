@@ -1,0 +1,171 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Project Plan/Endpoints: User management" />
+
+# Backend Endpoints
+
+<h2 className="sb-unstyled mt-4 mb-2 text-2xl text-zinc-500 uppercase">
+	User management
+</h2>
+
+<h3 className="sb-unstyled text-xl text-zinc-400">GET /user</h3>
+
+Fetch a list of users.
+
+Authenticated, authorized: all roles.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+```json Body
+{
+	"email": "test@test.com",
+	"password": "pAssw0rd?"
+}
+```
+
+Response:
+
+```json
+[
+	{
+		"id": "0461bb50-8f04-4657-8176-f7d4753b5835",
+		"fName": "John",
+		"lName": "Doe",
+		"organizationName": null,
+		"projectId": "118e42df",
+		"email": "test@test.com"
+	}
+]
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">GET /user/[ID]</h3>
+
+Find a user by ID.
+
+Authenticated, authorized: all roles.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+Response:
+
+```json
+{
+	"id": "0461bb50-8f04-4657-8176-f7d4753b5835",
+	"fName": "John",
+	"lName": "Doe",
+	"organizationName": null,
+	"projectId": "118e42df",
+	"email": "test@test.com"
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">POST /user</h3>
+
+Create a new user in the admin. Is connected to the same project than the logged in creator. The user has a role of "ProjectUser".
+
+Authenticated, authorized: ProjectOwner and ProjectEditor role.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+```json Body
+{
+	"fName": "Jane",
+	"lName": "Doe",
+	"email": "test@example.com", // must be unique
+	"password": "P4ssw!rd",
+	"confirmPassword": "P4ssw!rd",
+	"organizationName": "ACME" // optional
+}
+```
+
+Response:
+
+```json
+{
+	"id": "e2c9351c-a59a-4dbb-b647-369dfce071cb",
+	"fName": "Jane",
+	"lName": "Doe",
+	"organizationName": "ACME", // or null
+	"projectId": "118e42df",
+	"email": "test@example.com"
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">PUT /user/[ID]</h3>
+
+Find a user by ID and update it.
+
+Authenticated, authorized: ProjectOwner and ProjectEditor role.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+```json Body
+{
+	"fName": "Jane",
+	"lName": "Doe",
+	"email": "test@example.com",
+	"organizationName": "ACME", // optional
+	"password": "P4ssw!!rd", // optional
+	"confirmPassword": "P4ssw!!rd" // optional, but if password is set, this has to be the same
+}
+```
+
+Response:
+
+```json
+{
+	"id": "e2c9351c-a59a-4dbb-b647-369dfce071cb",
+	"fName": "Janet",
+	"lName": "Doe",
+	"organizationName": "ACME", // or null
+	"projectId": "118e42df",
+	"email": "test@example.com"
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">DELETE /user/[ID]</h3>
+
+Find a user by ID and delete it.
+
+Authenticated, authorized: ProjectOwner and ProjectEditor role.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+Response:
+
+Status 200

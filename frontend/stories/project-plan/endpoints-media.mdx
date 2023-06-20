@@ -1,0 +1,220 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Project Plan/Endpoints: File management" />
+
+# Backend Endpoints
+
+<h2 className="sb-unstyled mt-4 mb-2 text-2xl text-zinc-500 uppercase">
+	File management
+</h2>
+
+<h3 className="sb-unstyled text-xl text-zinc-400">GET /Dashboard</h3>
+
+Get a paginated list of files that are associated with the project the logged in user is connected to.
+
+Authenticated, authorized: all roles.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+Optional query parameters (pagination):
+
+```json
+{
+	"startIndex": 0,
+	"nextPageNumber": 1,
+	"pageSize": 5
+}
+```
+
+Response:
+
+```json
+{
+	"totalCount": 1,
+	"pageNumber": 0,
+	"recordNumber": 0,
+	"records": [
+		{
+			"id": 1,
+			"uploadedAt": "2023-06-20T15:18:53.322096Z",
+			"uploadedById": "projectoneowner-manuallyseededid",
+			"cmsProjectId": "projectoneidstring",
+			"image": {
+				"publicId": "zub4iesjxuq8z47601aw",
+				"width": 500,
+				"height": 500,
+				"format": "jpg",
+				"resourceType": "image",
+				"url": "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687112014/xxvrbjp7m36b6qs5vmoq.jpg",
+				"secureUrl": "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687112014/xxvrbjp7m36b6qs5vmoq.jpg"
+			},
+			"title": "Mars",
+			"category": null,
+			"description": "An image of the red planet Mars."
+		}
+	]
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">GET /Dashboard/[ID]</h3>
+
+Find a media object by id.
+
+Authenticated, authorized: all roles. Only has access to a media object that has the same project than the user.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+Response:
+
+```json
+{
+	"id": 2,
+	"uploadedAt": "2023-06-20T15:18:53.32223Z",
+	"uploadedById": "projectoneowner-manuallyseededid",
+	"cmsProjectId": "projectoneidstring",
+	"image": {
+		"publicId": "iadcxon5ykav5kysifm7",
+		"width": 500,
+		"height": 500,
+		"format": "jpg",
+		"resourceType": "image",
+		"url": "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687202172/iadcxon5ykav5kysifm7.jpg",
+		"secureUrl": "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687202172/iadcxon5ykav5kysifm7.jpg"
+	},
+	"title": "Jupiter",
+	"category": null,
+	"description": "Jupiter's Great Red Spot."
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">POST /Dashboard</h3>
+
+Upload an image into the project the logged in user is connected to.
+
+Needs to be a multipart form, not a json!
+
+Authenticated, authorized: all roles.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "multipart/form-data",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+```json Message
+{
+	"NewFile": "mars.jpg"
+}
+```
+
+Response:
+
+```json Headers
+{
+	"location": "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg"
+}
+```
+
+```json Body
+{
+	"id": 1,
+	"title": "mars.jpg",
+	"category": null,
+	"description": null,
+	"uploadedAt": "2023-06-20T15:18:53.322096Z",
+	"uploadedById": "projectoneowner-manuallyseededid",
+	"cmsProjectId": "projectoneidstring",
+	"image": {
+		"publicId": "zub4iesjxuq8z47601aw",
+		"width": 500,
+		"height": 500,
+		"format": "jpg",
+		"resourceType": "image",
+		"url": "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687111109/upyempy7urep5wgcedzr.jpg",
+		"secureUrl": "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687111109/upyempy7urep5wgcedzr.jpg"
+	}
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">PUT /Dashboard/[ID]</h3>
+
+Find a media object by id and update it. The image itself cannot be updated here.
+
+Category doesn't work right now, maybe will add later as a tag/tags.
+
+Authenticated, authorized: all roles. Only has access to a media object that has the same project than the user.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+```json Body
+{
+	"title": "Mars",
+	"description": "An image of the red planet Mars."
+}
+```
+
+Response:
+
+```json
+{
+	"id": 1,
+	"uploadedAt": "2023-06-20T15:18:53.322096Z",
+	"uploadedById": "projectoneowner-manuallyseededid",
+	"cmsProjectId": "projectoneidstring",
+	"image": {
+		"publicId": "zub4iesjxuq8z47601aw",
+		"width": 500,
+		"height": 500,
+		"format": "jpg",
+		"resourceType": "image",
+		"url": "http://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg",
+		"secureUrl": "https://res.cloudinary.com/dgxfgifvw/image/upload/v1687115656/zub4iesjxuq8z47601aw.jpg"
+	},
+	"title": "Mars Edited",
+	"category": null,
+	"description": "An image of the red planet Mars."
+}
+```
+
+<h3 className="sb-unstyled text-xl text-zinc-400">DELETE /Dashboard/[ID]</h3>
+
+Find a media object by ID and delete it.
+
+Authenticated, authorized: all roles. Only has access to a media object that has the same project than the user.
+
+Needs:
+
+```json Headers
+{
+	"Content-Type": "application/json",
+	"Authentication": "Bearer {token received from login}"
+}
+```
+
+Response:
+
+Status 200

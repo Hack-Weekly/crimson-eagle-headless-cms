@@ -30,21 +30,15 @@ builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 }); */
 
 var databaseUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
-var CONNECTION_STRING = "DataSource=server.db; Cache=Shared";
+var CONNECTION_STRING = builder.Configuration.GetConnectionString("CMSAPIDbConnectionString");
 if (string.IsNullOrEmpty(databaseUrl))
 {
-    builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
-    {
-        DbOptions.UseSqlite(CONNECTION_STRING);
-    });
+    databaseUrl = "postgres://postgres:docker@localhost:5432/crimson_eagles_headless_cms";
 }
-else
+builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
 {
-    builder.Services.AddDbContext<CMSDbContext>(DbOptions =>
-    {
-        DbOptions.UseNpgsql(ConnectionHelper.BuildConnectionString(databaseUrl));
-    });
-}
+    DbOptions.UseNpgsql(ConnectionHelper.BuildConnectionString(databaseUrl));
+});
 
 // add swagger
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

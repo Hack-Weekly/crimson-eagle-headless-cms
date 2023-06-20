@@ -146,7 +146,7 @@ namespace CMS.API.Controllers
             {
                 Title = DTO.NewFile.FileName,
                 ImageId = uploadResult.PublicId,
-                UploadedAt = DateTime.Now,
+                UploadedAt = DateTime.UtcNow,
                 UploadedById = currentUserId,
                 cmsProjectId = projectId,
             };

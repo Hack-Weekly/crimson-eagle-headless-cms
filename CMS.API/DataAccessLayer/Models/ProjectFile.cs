@@ -7,6 +7,7 @@ namespace CMS.API.DataAccessLayer.Models
     public class ProjectFile
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public required string Title { get; set; }
         public FileCategory? Category { get; set; }
