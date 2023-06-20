@@ -212,14 +212,14 @@ namespace CMS.API.Migrations
                         {
                             Id = "projectoneidstring",
                             IsActive = true,
-                            LastUpdated = new DateTime(2023, 6, 19, 19, 4, 20, 561, DateTimeKind.Utc).AddTicks(2478),
+                            LastUpdated = new DateTime(2023, 6, 20, 15, 17, 0, 3, DateTimeKind.Utc).AddTicks(821),
                             Name = "project 1"
                         },
                         new
                         {
                             Id = "projecttwoidstring",
                             IsActive = true,
-                            LastUpdated = new DateTime(2023, 6, 19, 19, 4, 20, 561, DateTimeKind.Utc).AddTicks(2481),
+                            LastUpdated = new DateTime(2023, 6, 20, 15, 17, 0, 3, DateTimeKind.Utc).AddTicks(824),
                             Name = "project 2"
                         });
                 });
